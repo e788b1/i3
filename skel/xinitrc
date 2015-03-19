@@ -1,0 +1,56 @@
+#!/bin/sh
+# env
+export PATH="$PATH:$HOME/.i3/bin"
+export XDG_CACHE_HOME="/tmp/.cache"
+mkdir -pv /tmp/thumbnails
+
+# fcitx @ e788b1
+export XMODIFIERS="@im=fcitx"
+export QT_IM_MODULE=fcitx
+export GTK_IM_MODULE=fcitx
+fcitx-remote > /dev/null 2>&1
+if [ $? = "1" ]; then
+	echo "Fcitx seems is not running"
+	fcitx > /dev/null 2>&1 &
+else
+	echo "Fcitx is running correctly."
+fi
+
+# goagent
+#if [ -z `ps -ef | grep goagent/local/proxy.py | grep -v grep | awk '{print $2}'` ]; then
+#	python /opt/goagent/local/proxy.py > /dev/null 2>&1  &
+#fi
+
+# urxvt demon
+if [ -z `ps -ef | grep urxvtd | grep -v grep | awk '{print $2}'` ]; then
+	urxvtd &
+fi
+
+#settings
+xset -b
+xset s 3600 3600
+# xset -dpms; xset s off
+synclient TapButton1=1
+xrdb -merge ~/.i3/skel/Xresources
+xmodmap ~/.i3/xmodmap
+[ -e ~/.fehbg ] && source ~/.fehbg
+compton --config ~/.i3/compton.conf &
+dunst -config ~/.i3/dunstrc &
+unclutter -root -visible &
+#xscreensaver -no-splash $
+redshift -l 54.35:18.65 -m randr -t 5500:4500 -g 0.75:0.75:0.75 &
+
+#creating gpg agent
+GPG_ENVFILE="$HOME/.gnupg/gpg-agent.env"
+if [ -x $(which gpg-agent) ]; then
+    eval "$(gpg-agent --enable-ssh-support --daemon --write-env-file "$GPG_ENVFILE")"
+    export GPG_AGENT_INFO
+fi
+
+eval `ck-launch-session dbus-launch --sh-syntax --exit-with-session`
+i3
+
+#getting rid of gpg agent
+[ -x $(which gpg-agent) ] && kill $(grep GPG_AGENT_INFO "$GPG_ENVFILE" | cut -d: -f 2) 2>/dev/null
+
+true

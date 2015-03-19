@@ -1,0 +1,167 @@
+# Set super as Mod
+set $mod Mod4
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Style
+#font xft:Cousine bold 7.2
+font xft:Ubuntu bold 10
+set $blue #005588
+set $gray1 #484848
+set $gray2 #333333
+client.focused            $gray1   $gray1   #FFFFFF   #333333
+client.focused_inactive   $gray2   $gray2   #FFFFFF   #000000
+client.unfocused          $gray2   $gray2   #FFFFFF   #000000
+for_window [class="^Nomacs$"] floating enable
+for_window [class="^Subl$"] floating enable
+for_window [class="^7zFM$"] floating enable
+for_window [class="^Thunar$" title="^File\ Operation\ Progress$" instance="^thunar$"] floating enable
+
+new_window pixel 1
+focus_follows_mouse  no
+force_focus_wrapping yes
+
+# auto start
+# exec --no-startup-id google-chrome-stable
+
+# app shortcut
+bindsym $mod+Return exec --no-startup-id urxvtc
+bindsym $mod+Shift+Return exec --no-startup-id chromium
+bindsym $mod+Shift+comma exec --no-startup-id xcalib -i -alter
+bindsym $mod+Shift+slash exec --no-startup-id thunar
+bindsym $mod+Print exec --no-startup-id scrot -u -e 'mv $f /tmp/ && nomacs /tmp/$f'
+bindsym Print exec --no-startup-id scrot -e 'mv $f /tmp/ && nomacs /tmp/$f'
+bindsym --release Ctrl+Print exec --no-startup-id scrot -s -e 'mv $f /tmp/ && nomacs /tmp/$f'
+bindsym $mod+Shift+c kill
+bindsym $mod+p exec --no-startup-id "dmenu_run -nb black -p run"
+bindsym Control+$mod+l exec --no-startup-id i3lock -i ~/.i3/wallpaper.png
+
+# rerote srceen
+bindsym $mod+Shift+Up exec --no-startup-id xrandr --output LVDS --rotate normal
+bindsym $mod+Shift+Down exec --no-startup-id xrandr --output LVDS --rotate inverted
+bindsym $mod+Shift+Left exec --no-startup-id xrandr --output LVDS --rotate left
+bindsym $mod+Shift+Right exec --no-startup-id xrandr --output LVDS --rotate right
+
+# mark and goto
+bindsym $mod+z exec i3-input -F 'mark %s' -P 'Mark name: '
+bindsym $mod+Shift+z exec i3-input -F '[con_mark=%s] focus' -P 'Go to mark: '
+
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# split in horizontal orientation
+bindsym $mod+v split h
+
+# split in vertical orientation
+bindsym $mod+g split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (tabbed, toggle split)
+bindsym $mod+n layout tabbed
+bindsym $mod+m layout toggle split
+
+# container navigation
+bindsym $mod+d focus parent
+bindsym $mod+b focus child
+
+# move container between displays
+bindsym $mod+semicolon move workspace to output right
+
+# toggle tiling / floating
+bindsym $mod+Shift+f floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# switch to last workspace
+bindsym $mod+6 workspace back_and_forth
+
+# switch to workspace
+bindsym $mod+q workspace 1: q
+bindsym $mod+w workspace 2: w
+bindsym $mod+e workspace 3: e
+bindsym $mod+r workspace 4: r
+bindsym $mod+t workspace 5: t
+bindsym $mod+y workspace 6: y
+bindsym $mod+u workspace 7: u
+bindsym $mod+i workspace 8: i
+bindsym $mod+o workspace 9: o
+
+# move focused container to workspace
+bindsym $mod+Shift+q move container to workspace 1: q
+bindsym $mod+Shift+w move container to workspace 2: w
+bindsym $mod+Shift+e move container to workspace 3: e
+bindsym $mod+Shift+r move container to workspace 4: r
+bindsym $mod+Shift+t move container to workspace 5: t
+bindsym $mod+Shift+y move container to workspace 6: y
+bindsym $mod+Shift+u move container to workspace 7: u
+bindsym $mod+Shift+i move container to workspace 8: i
+bindsym $mod+Shift+o move container to workspace 9: o
+
+bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Shift+Tab move container to workspace back_and_forth; workspace back_and_forth
+
+bindsym $mod+x reload
+bindsym $mod+Shift+x restart
+bindsym $mod+Shift+BackSpace exit
+
+mode "resize" {
+        bindsym h   resize shrink width 10 px or 10 ppt
+        bindsym j   resize grow height 10 px or 10 ppt
+        bindsym k   resize shrink height 10 px or 10 ppt
+        bindsym l   resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or q or ^[
+        bindsym Return mode "default"
+        bindsym q mode "default"
+        bindsym Escape mode "default"
+        bindcode Control+34 mode "default"
+}
+
+bindsym $mod+s mode "resize"
+
+# multimedia keys
+#bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '3%+'"
+#bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '1%-'"
+#bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
+#bindsym XF86AudioMicMute exec "amixer -D pulse sset Capture toggle"
+
+#bindsym XF86AudioPlay exec "~/.bin/player toggle"
+#bindsym XF86AudioStop exec "~/.bin/player stop"
+#bindsym XF86AudioNext exec "~/.bin/player next"
+#bindsym XF86AudioPrev exec "~/.bin/player previous"
+
+#bindsym XF86KbdBrightnessDown exec "sudo /opt/kbdlight/bin/kbdlight -"
+#bindsym XF86KbdBrightnessUp exec "sudo /opt/kbdlight/bin/kbdlight +"
+#bindsym XF86TouchpadToggle exec "synclient TouchpadOff=$(synclient | awk '/TouchpadOff/ {print ($3+1)%2}')"
+
+#bindsym XF86Display exec "arandr"
+
+#bindsym $mod+a exec "urxvtc -e alsamixer"
+#bindsym $mod+Shift+a exec "pavucontrol"
+
+bar {
+        position top
+        # status_command ~/.i3/bin/conky-wrapper
+        # status_command ~/.i3/bin/mystatus.sh
+        status_command py3status -c ~/.i3/i3status.conf
+        colors {
+                statusline #AAAAAA
+                background #333333
+                focused_workspace $gray2 $gray2 #FFFFFF
+                inactive_workspace $gray1 $gray1 #AAAAAA
+        }
+}
+

@@ -1,0 +1,21 @@
+app-admin/conky vim-syntax wifi
+app-editors/vim cscope
+dev-qt/qtgui gtkstyle
+media-libs/libpng apng
+sys-fs/udev gudev
+sys-libs/zlib minizip
+x11-libs/cairo -qt4
+x11-terms/rxvt-unicode 256-color
+dev-util/cmake -qt4
+app-text/ghostscript-gpl cups
+app-text/poppler -qt4
+gnome-base/gvfs -http
+x11-themes/gnome-icon-theme branding
+# required by net-proxy/goagent-3.2.2::gentoo-zh
+# required by goagent (argument)
+=dev-libs/nss-3.17.3 utils
+net-proxy/goagent -gtk
+app-arch/p7zip rar wxwidgets
+net-nds/openldap minimal
+app-i18n/fcitx -introspection
+virtual/libgudev -introspection

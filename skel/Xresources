@@ -1,0 +1,116 @@
+! vim: set filetype=xdefaults :
+Xcursor.theme: slitaz-polar
+!Xcursor.size: 16
+
+! Using Xft
+URxvt.font        : xft:Monaco:pixelsize=13, xft:Meslo\ LG\ S\ for\ Powerline:pixelsize=13
+
+!-*-{ Xft settings
+Xft*dpi:       96
+Xft*antialias: True
+Xft*hinting:   Full
+Xft.lcdfilter : lcddefault
+Xft.hintstyle : hintslight
+Xft.hinting   : true
+Xft.antialias : true
+Xft.rgba      : rgb
+!-*-}
+
+URxvt.letterSpace : -1
+URxvt.termName    : rxvt-256color
+! URxvt.iso14755    : false
+
+URxvt.urgentOnBell: true
+URxvt.saveLines   : 12000
+URxvt.scrollBar   : false
+URxvt.scrollstyle : rxvt
+
+!Fading
+URxvt.fading    : 30
+URxvt.fadeColor : #333333
+
+! The string will be interpreted as if typed into the shell as-is.
+! In this example, printing will be disabled altogether.
+URxvt.print-pipe: "cat > /dev/null"
+
+!-*- Perl extensions -*-
+URxvt.perl-ext-common:default,clipboard,font-size,matcher,keyboard-select,url-select
+URxvt.keysym.M-u           : perl:url-select:select_next
+URxvt.url-launcher         : /opt/google/chrome/google-chrome
+URxvt.underlineURLs        : true
+URxvt.matcher.button       : 1
+URxvt.keysym.M-x           : perl:keyboard-select:activate
+URxvt.keysym.M-c           : perl:clipboard:copy
+URxvt.keysym.M-v           : perl:clipboard:paste
+URxvt.keysym.M-C-v         : perl:clipboard:paste_escaped
+!URxvt.copyCommand         : xsel -ib
+!URxvt.pasteCommand        : xsel -ob
+URxvt.keysym.C-equal       : perl:font-size:increase
+URxvt.keysym.C-minus       : perl:font-size:decrease
+URxvt.url-select.launcher  : google-chrome-stable
+URxvt.url-select.autocopy  : true
+URxvt.url-select.underline : true
+
+
+!#include "dark.xresources"
+!Solarized + tangerine + random colours
+URxvt.pointerColorBackground : #586E75
+URxvt.pointerColorForeground : #93A1A1
+URxvt.cursorColor            : #93A1A1
+URxvt.background : #333333
+URxvt.foreground : #CCCCCC
+URxvt.colorBD : #FFFFFF
+URxvt.colorUL : #CCCC66
+! black
+URxvt.color0  : #2E3436
+URxvt.color8  : #555753
+! red
+URxvt.color1  : #DC322F
+URxvt.color9  : #E84F4F
+! green
+URxvt.color2  : #27ae60
+URxvt.color10 : #2ecc71
+! yellow
+URxvt.color3  : #f39c12
+URxvt.color11 : #f1c40f
+! blue
+URxvt.color4  : #268BD2
+URxvt.color12 : #6699FF
+! magenta
+URxvt.color5  : #9933CC
+URxvt.color13 : #CC66FF
+! cyan
+URxvt.color6  : #33CC99
+URxvt.color14 : #93A1A1
+! white
+URxvt.color7  : #EEE8D5
+URxvt.color15 : #FDF6E3
+
+! gentoo theme
+! *background: #0f0f0f
+! *foreground: #c8c8c8
+
+! !black
+! *color0:  #251f1f
+! *color8:  #5e5e5e
+! !red
+! *color1:  #eb4509
+! *color9:  #eb4509
+! !green
+! *color2:  #94e76b
+! *color10: #95e76b
+! !yellow
+! *color3:  #ffac18
+! *color11: #ffac18
+! !blue
+! *color4:  #46aede
+! *color12: #46aede
+! !magenta
+! *color5:  #e32c57
+! *color13: #e32c57
+! !cyan
+! *color6:  #d6dbac
+! *color14: #d6dbac
+! !white
+! *color7:  #efefef
+! *color15: #efefef

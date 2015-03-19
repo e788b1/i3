@@ -1,0 +1,13 @@
+polkit.addRule(function(action, subject) {
+    if (action.id == "org.freedesktop.udisks2.filesystem-mount" &&
+        subject.user == "e788b1") {
+        return "yes";
+    }
+});
+
+polkit.addRule(function(action, subject) {
+    if (action.id == "org.freedesktop.udisks2.filesystem-mount-system" &&
+        subject.user == "e788b1") {
+        return "yes";
+    }
+})

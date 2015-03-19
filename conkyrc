@@ -1,0 +1,19 @@
+background        no
+out_to_console 	  yes
+out_to_x	  no
+update_interval	  2
+total_run_times	  0
+short_units	  yes
+pad_percents	  3
+
+override_utf8_locale yes
+TEXT
+,[
+  {"full_text": "${exec show_title_conky.sh}", "color":"\#B58900"},
+  {"full_text": "▼${downspeedf wlp8s0b1}K", "color":"\#B58900"},
+  {"full_text": "≣$mem", "color":"\#B58900"},
+  {"full_text": "♪$mixer", "color":"\#268BD2"},
+  {"full_text": "☢${battery_percent BAT1}", "color":"\#268BD2"},
+  {"full_text": "${time %a %d %b} ${time %H:%M:%S} .$cpu"}
+]
+
