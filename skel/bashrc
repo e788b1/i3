@@ -17,3 +17,6 @@ fi
 
 # Put your fun stuff here.
 source /etc/profile.d/bash-completion.sh
+
+# Prevent Wine from adding menu entries and desktop links.
+export WINEDLLOVERRIDES='winemenubuilder.exe=d'

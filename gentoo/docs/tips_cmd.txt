@@ -1,0 +1,2 @@
+# word sort
+tr ' ' '\n' <<< "zebra ant spider spider ant zebra ant" | sort -u | tr '\n' ' '

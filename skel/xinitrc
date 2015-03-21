@@ -23,19 +23,19 @@ fi
 
 # urxvt demon
 if [ -z `ps -ef | grep urxvtd | grep -v grep | awk '{print $2}'` ]; then
-	urxvtd &
+	urxvtd -q -o -f
 fi
 
 #settings
 xset -b
 xset s 3600 3600
 # xset -dpms; xset s off
-synclient TapButton1=1
-xrdb -merge ~/.i3/skel/Xresources
-xmodmap ~/.i3/xmodmap
+# synclient TapButton1=1
+xrdb -merge ~/.i3/Xresources
+xmodmap ~/.i3/Xmodmap
 [ -e ~/.fehbg ] && source ~/.fehbg
 compton --config ~/.i3/compton.conf &
-dunst -config ~/.i3/dunstrc &
+#dunst -config ~/.i3/dunstrc &
 unclutter -root -visible &
 #xscreensaver -no-splash $
 redshift -l 54.35:18.65 -m randr -t 5500:4500 -g 0.75:0.75:0.75 &

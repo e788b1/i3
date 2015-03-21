@@ -21,6 +21,12 @@ new_window pixel 1
 focus_follows_mouse  no
 force_focus_wrapping yes
 
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
 # auto start
 # exec --no-startup-id google-chrome-stable
 
@@ -28,7 +34,7 @@ force_focus_wrapping yes
 bindsym $mod+Return exec --no-startup-id urxvtc
 bindsym $mod+Shift+Return exec --no-startup-id chromium
 bindsym $mod+Shift+comma exec --no-startup-id xcalib -i -alter
-bindsym $mod+Shift+slash exec --no-startup-id thunar
+bindsym $mod+slash exec --no-startup-id thunar
 bindsym $mod+Print exec --no-startup-id scrot -u -e 'mv $f /tmp/ && nomacs /tmp/$f'
 bindsym Print exec --no-startup-id scrot -e 'mv $f /tmp/ && nomacs /tmp/$f'
 bindsym --release Ctrl+Print exec --no-startup-id scrot -s -e 'mv $f /tmp/ && nomacs /tmp/$f'

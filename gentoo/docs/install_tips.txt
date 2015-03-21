@@ -1,0 +1,59 @@
+mkdir -v /mnt/gentoo
+http://mirrors.163.com/gentoo/releases/amd64/autobuilds/current-stage3-amd64/
+tar xvjpf stage3-*.tar.bz2
+cp -L /etc/resolv.conf /mnt/gentoo/etc/
+
+mount -t proc proc /mnt/gentoo/proc
+mount --rbind /sys /mnt/gentoo/sys
+mount --make-rslave /mnt/gentoo/sys
+mount --rbind /dev /mnt/gentoo/dev
+mount --make-rslave /mnt/gentoo/dev
+
+rm /dev/shm && mkdir /dev/shm
+mount -t tmpfs -o nosuid,nodev,noexec shm /dev/shm
+chmod 1777 /dev/shm
+
+root #chroot /mnt/gentoo /bin/bash
+root #source /etc/profile
+root #export PS1="(chroot) $PS1"
+
+emerge-webrsync
+eselect profile set 1
+
+/etc/timezone
+emerge --config sys-libs/timezone-data
+
+/etc/locale.gen
+locale-gen
+eselect locale list
+/etc/env.d/02locale
+
+env-update && source /etc/profile
+
+
+emerge --ask sys-kernel/gentoo-sources sys-kernel/linux-firmware
+cp .confng
+make && make modules_install
+make install
+
+/etc/fstab
+/etc/conf.d/hostname
+/etc/conf.d/net
+emerge --ask --noreplace net-misc/netifrc dhcpcd
+
+/etc/hosts
+127.0.0.1     tux.homenetwork tux localhost
+
+passwd
+
+/etc/rc.conf
+/etc/inittab
+
+rc-update add syslog-ng cronie 
+
+
+exit
+cd
+umount -l /mnt/gentoo/dev{/shm,/pts,}
+umount /mnt/gentoo{/boot,/sys,/proc,}
+
