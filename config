@@ -3,6 +3,8 @@ set $mod Mod4
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# force_xinerama yes
+
 # Style
 #font xft:Cousine bold 7.2
 font xft:Ubuntu bold 10

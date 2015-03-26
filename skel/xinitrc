@@ -27,8 +27,8 @@ if [ -z `ps -ef | grep urxvtd | grep -v grep | awk '{print $2}'` ]; then
 fi
 
 #settings
-xset -b
-xset s 3600 3600
+# xset -b
+# xset s 3600 3600
 # xset -dpms; xset s off
 # synclient TapButton1=1
 xrdb -merge ~/.i3/Xresources
@@ -39,6 +39,20 @@ compton --config ~/.i3/compton.conf &
 unclutter -root -visible &
 #xscreensaver -no-splash $
 redshift -l 54.35:18.65 -m randr -t 5500:4500 -g 0.75:0.75:0.75 &
+
+if [ `xrandr | grep -c ' connected '` -eq 2 ]; then # dual-monitor
+    if [ `xrandr | grep VGA-0 | grep -c ' connected '` -eq 1 ]; then
+        xrandr --output LVDS --auto --primary --output VGA-0 --auto --right-of LVDS
+    fi
+    if [ `xrandr | grep HDMI-0 | grep -c ' connected '` -eq 1 ]; then
+        xrandr --output LVDS --auto --primary --output HDMI-0 --auto --right-of LVDS
+    fi
+    # feh --bg-tile ~/Wallpapers/tile8.jpg
+    # xsetroot -solid \#cccccc
+else
+    xrandr --output LVDS --auto --primary --output VGA-0 --off --output HDMI-0 --off
+    # feh --bg-center ~/Wallpapers/paperart5.jpg
+fi
 
 #creating gpg agent
 GPG_ENVFILE="$HOME/.gnupg/gpg-agent.env"
