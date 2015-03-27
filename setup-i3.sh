@@ -11,4 +11,6 @@ mkdir -pv ~/.config/gtk-3.0
 #cp -vf .i3/Trolltech.conf .config/Trolltech.conf
 rm -rfv .thumbnails
 ln -sv /tmp/thumbnails .thumbnails
-[ ! -d .icons ] && ln -sv ${PWD}/.i3/icons .icons
+[ ! -d .icons ] && ln -sv .i3/icons .icons
+[ ! -d .vim ] && ln -sv .i3/vim .vim
+ln -sv .i3/vim/vimrc .vimrc
