@@ -8,6 +8,7 @@ floating_modifier $mod
 # Style
 #font xft:Cousine bold 7.2
 font xft:Ubuntu bold 10
+
 set $blue #005588
 set $gray1 #484848
 set $gray2 #333333
@@ -34,7 +35,7 @@ bindsym $mod+minus scratchpad show
 
 # app shortcut
 bindsym $mod+Return exec --no-startup-id urxvtc
-bindsym $mod+Shift+Return exec --no-startup-id chromium
+bindsym $mod+Shift+Return exec --no-startup-id google-chrome-stable
 bindsym $mod+Shift+comma exec --no-startup-id xcalib -i -alter
 bindsym $mod+slash exec --no-startup-id thunar
 bindsym $mod+Print exec --no-startup-id scrot -u -e 'mv $f /tmp/ && nomacs /tmp/$f'
