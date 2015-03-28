@@ -18,6 +18,7 @@ client.unfocused          $gray2   $gray2   #FFFFFF   #000000
 for_window [class="^Nomacs$"] floating enable
 for_window [class="^Subl$"] floating enable
 for_window [class="^7zFM$"] floating enable
+for_window [class="^Xfce4-appfinder$"] floating enable
 for_window [class="^Thunar$" title="^File\ Operation\ Progress$" instance="^thunar$"] floating enable
 
 new_window pixel 1
@@ -36,8 +37,10 @@ bindsym $mod+minus scratchpad show
 # app shortcut
 bindsym $mod+Return exec --no-startup-id urxvtc
 bindsym $mod+Shift+Return exec --no-startup-id google-chrome-stable
-bindsym $mod+Shift+comma exec --no-startup-id xcalib -i -alter
+bindsym $mod+Shift+comma exec --no-startup-id xcalib -i -a
 bindsym $mod+slash exec --no-startup-id thunar
+bindsym $mod+F2 exec --no-startup-id xfce4-appfinder
+bindsym $mod+greater exec --no-startup-id qcomicbook
 bindsym $mod+Print exec --no-startup-id scrot -u -e 'mv $f /tmp/ && nomacs /tmp/$f'
 bindsym Print exec --no-startup-id scrot -e 'mv $f /tmp/ && nomacs /tmp/$f'
 bindsym --release Ctrl+Print exec --no-startup-id scrot -s -e 'mv $f /tmp/ && nomacs /tmp/$f'
@@ -147,10 +150,10 @@ bindsym $mod+s mode "resize"
 #bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
 #bindsym XF86AudioMicMute exec "amixer -D pulse sset Capture toggle"
 
-#bindsym XF86AudioPlay exec "~/.bin/player toggle"
-#bindsym XF86AudioStop exec "~/.bin/player stop"
-#bindsym XF86AudioNext exec "~/.bin/player next"
-#bindsym XF86AudioPrev exec "~/.bin/player previous"
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioStop exec mpc stop
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc previous
 
 #bindsym XF86KbdBrightnessDown exec "sudo /opt/kbdlight/bin/kbdlight -"
 #bindsym XF86KbdBrightnessUp exec "sudo /opt/kbdlight/bin/kbdlight +"

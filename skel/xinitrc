@@ -38,7 +38,7 @@ compton --config ~/.i3/compton.conf &
 #dunst -config ~/.i3/dunstrc &
 unclutter -root -visible &
 #xscreensaver -no-splash $
-redshift -l 54.35:18.65 -m randr -t 5500:4500 -g 0.75:0.75:0.75 &
+# redshift -l 114.32:30.12 -m randr -t 5500:4500 -g 0.75:0.75:0.75 &
 
 if [ `xrandr | grep -c ' connected '` -eq 2 ]; then # dual-monitor
     if [ `xrandr | grep VGA-0 | grep -c ' connected '` -eq 1 ]; then
