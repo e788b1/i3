@@ -14,9 +14,16 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
-
 # Put your fun stuff here.
-source /etc/profile.d/bash-completion.sh
+[ -f /etc/profile.d/bash-completion.sh ] &&
+    . /etc/profile.d/bash-completion.sh
 
 # Prevent Wine from adding menu entries and desktop links.
 export WINEDLLOVERRIDES='winemenubuilder.exe=d'
+
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'

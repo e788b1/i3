@@ -18,8 +18,16 @@ client.unfocused          $gray2   $gray2   #FFFFFF   #000000
 for_window [class="^Nomacs$"] floating enable
 for_window [class="^Subl$"] floating enable
 for_window [class="^7zFM$"] floating enable
+for_window [class="^Vlc$"] floating enable
+for_window [class="^feh$"] floating enable
+for_window [class="^Smplayer$"] floating enable
 for_window [class="^Xfce4-appfinder$"] floating enable
 for_window [class="^Thunar$" title="^File\ Operation\ Progress$" instance="^thunar$"] floating enable
+for_window [title="Chrono Download Manager"] floating enable
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+popup_during_fullscreen smart
 
 new_window pixel 1
 focus_follows_mouse  no
@@ -46,17 +54,25 @@ bindsym Print exec --no-startup-id scrot -e 'mv $f /tmp/ && nomacs /tmp/$f'
 bindsym --release Ctrl+Print exec --no-startup-id scrot -s -e 'mv $f /tmp/ && nomacs /tmp/$f'
 bindsym $mod+Shift+c kill
 bindsym $mod+p exec --no-startup-id "dmenu_run -nb black -p run"
-bindsym Control+$mod+l exec --no-startup-id i3lock -i ~/.i3/wallpaper.png
+bindsym Control+$mod+l exec --no-startup-id i3lock -c $(printf '%06X\n' $(($RANDOM * 512)))
+
+bindsym $mod+Alt+Tab exec ~/.i3/bin/tab_i3_windows.sh
 
 # rerote srceen
 bindsym $mod+Shift+Up exec --no-startup-id xrandr --output LVDS --rotate normal
 bindsym $mod+Shift+Down exec --no-startup-id xrandr --output LVDS --rotate inverted
 bindsym $mod+Shift+Left exec --no-startup-id xrandr --output LVDS --rotate left
 bindsym $mod+Shift+Right exec --no-startup-id xrandr --output LVDS --rotate right
+bindsym Control+$mod+Up exec --no-startup-id xrandr --output VGA-0 --rotate normal
+bindsym Control+$mod+Down exec --no-startup-id xrandr --output VGA-0 --rotate inverted
+bindsym Control+$mod+Left exec --no-startup-id xrandr --output VGA-0 --rotate left
+bindsym Control+$mod+Right exec --no-startup-id xrandr --output VGA-0 --rotate right
 
 # mark and goto
-bindsym $mod+z exec i3-input -F 'mark %s' -P 'Mark name: '
-bindsym $mod+Shift+z exec i3-input -F '[con_mark=%s] focus' -P 'Go to mark: '
+bindsym $mod+Shift+z exec i3-input -F 'mark %s' -P 'Mark name: '
+bindsym $mod+z exec i3-input -F '[con_mark=%s] focus' -P 'Go to mark: '
+
+bindsym $mod+grave exec ~/.i3/bin/list_i3_windows.py
 
 
 # change focus

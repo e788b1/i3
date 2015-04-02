@@ -8,7 +8,7 @@ URxvt.font  : xft:Monaco:pixelsize=13
 !URxvt.font  : xft:Terminus:pixelsize=16
 
 !-*-{ Xft settings
-Xft*dpi:       96
+! Xft*dpi:       96
 Xft*antialias: True
 Xft*hinting:   Full
 Xft.hintstyle : hintslight

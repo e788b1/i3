@@ -1,7 +1,7 @@
-mkdir -v /mnt/gentoo
 http://mirrors.163.com/gentoo/releases/amd64/autobuilds/current-stage3-amd64/
-tar xvjpf stage3-*.tar.bz2
-cp -L /etc/resolv.conf /mnt/gentoo/etc/
+mount /dev/sdXn /mnt/gentoo
+cd /mnt/gentoo
+tar xpvf stage3-*.tar.bz2
 
 mount -t proc proc /mnt/gentoo/proc
 mount --rbind /sys /mnt/gentoo/sys
@@ -13,47 +13,60 @@ rm /dev/shm && mkdir /dev/shm
 mount -t tmpfs -o nosuid,nodev,noexec shm /dev/shm
 chmod 1777 /dev/shm
 
-root #chroot /mnt/gentoo /bin/bash
-root #source /etc/profile
-root #export PS1="(chroot) $PS1"
+chroot /mnt/gentoo /bin/bash
+source /etc/profile
+export PS1="(chroot) $PS1"
 
-emerge-webrsync
-eselect profile set 1
 
-/etc/timezone
+make.conf
+/etc/fstab
+
+echo "Asia/Shanghai" > /etc/timezone
 emerge --config sys-libs/timezone-data
 
 /etc/locale.gen
 locale-gen
 eselect locale list
-/etc/env.d/02locale
 
 env-update && source /etc/profile
 
-
-emerge --ask sys-kernel/gentoo-sources sys-kernel/linux-firmware
-cp .confng
-make && make modules_install
+emerge gentoo-sources linux-firmware
+make -j5 && make modules_install
 make install
 
-/etc/fstab
 /etc/conf.d/hostname
-/etc/conf.d/net
-emerge --ask --noreplace net-misc/netifrc dhcpcd
+kindle
 
-/etc/hosts
-127.0.0.1     tux.homenetwork tux localhost
+/etc/conf.d/net
+modules="wpa_supplicant"
+wpa_supplicant_eth0="-Dnl80211"
+
+emerge --ask --noreplace net-misc/netifrc
 
 passwd
 
-/etc/rc.conf
-/etc/inittab
+syslog-ng cronie mlocate dhcpcd
+rc-update add syslog-ng default
+rc-update add cronie default
 
-rc-update add syslog-ng cronie 
-
+useradd -m -G users,wheel,audio -s /bin/bash kindle
+passwd kindle
 
 exit
 cd
 umount -l /mnt/gentoo/dev{/shm,/pts,}
 umount /mnt/gentoo{/boot,/sys,/proc,}
+reboot
+
+
+
+
+
+
+
+
+
+
+
+
 

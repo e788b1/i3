@@ -1,0 +1,30 @@
+Keyboard ShortcutDescription
+Ctrl+lClear the screen
+Cursor Movement
+Ctrl+bMove cursor one character to the left
+Ctrl+fMove cursor one character to the right
+Alt+bMove cursor one word to the left
+Alt+fMove cursor one word to the right
+Ctrl+aMove cursor to start of the line
+Ctrl+eMove cursor to end of the line
+Copy & Paste
+Ctrl+uCut everything from line start to cursor
+Ctrl+kCut everything from the cursor to end of the line
+Alt+dCut the current word after the cursor
+Ctrl+wCut the current word before the cursor
+Ctrl+yPaste the previous cut text
+Alt+yPaste the second latest cut text
+Alt+Ctrl+yPaste the first argument of the previous command
+Alt+./_Paste the last argument of the previous command
+History
+Ctrl+pMove to the previous line
+Alt+nMove to the next line
+Ctrl+sSearch
+Ctrl+rReverse search
+Ctrl+jEnd search
+Ctrl+gAbort search (restores original line)
+Alt+rRestores all changes made to line
+Completion
+TabAuto-complete a name
+Alt+?List all possible completions
+Alt+*Insert all possible completions
