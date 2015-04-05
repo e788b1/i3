@@ -65,7 +65,7 @@ e788b1
 modules="vboxdrv vboxnetadp vboxnetflt"
 
 # wifi
-wpa_supplicant -B -i wlp3s0 -c <(wpa_passphrase "ssid" "psk")
+wpa_supplicant -B -i wlp8s0b1 -c <(wpa_passphrase "ssid" "psk")
 # /etc/conf.d/net
 modules_wlp8s0="wpa_supplicant"
 wpa_supplicant_wlp8s0="-Dnl80211"

@@ -6,7 +6,6 @@ floating_modifier $mod
 # force_xinerama yes
 
 # Style
-#font xft:Cousine bold 7.2
 font xft:Ubuntu bold 10
 
 set $blue #005588
@@ -55,8 +54,6 @@ bindsym --release Ctrl+Print exec --no-startup-id scrot -s -e 'mv $f /tmp/ && no
 bindsym $mod+Shift+c kill
 bindsym $mod+p exec --no-startup-id "dmenu_run -nb black -p run"
 bindsym Control+$mod+l exec --no-startup-id i3lock -c $(printf '%06X\n' $(($RANDOM * 512)))
-
-bindsym $mod+Alt+Tab exec ~/.i3/bin/tab_i3_windows.sh
 
 # rerote srceen
 bindsym $mod+Shift+Up exec --no-startup-id xrandr --output LVDS --rotate normal

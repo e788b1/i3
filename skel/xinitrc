@@ -9,13 +9,7 @@ mkdir -pv /tmp/thumbnails
 export XMODIFIERS="@im=fcitx"
 export QT_IM_MODULE=fcitx
 export GTK_IM_MODULE=fcitx
-fcitx-remote > /dev/null 2>&1
-if [ $? = "1" ]; then
-	echo "Fcitx seems is not running"
-	fcitx > /dev/null 2>&1 &
-else
-	echo "Fcitx is running correctly."
-fi
+~/.i3/bin/fcitx-start.sh
 
 # goagent
 #if [ -z `ps -ef | grep goagent/local/proxy.py | grep -v grep | awk '{print $2}'` ]; then
@@ -32,8 +26,8 @@ fi
 # xset s 3600 3600
 # xset -dpms; xset s off
 # synclient TapButton1=1
-xrdb -merge ~/.i3/Xresources
-xmodmap ~/.i3/Xmodmap
+xrdb -merge ~/.i3/skel/Xresources
+xmodmap ~/.i3/skel/Xmodmap
 
 # [ -e ~/.fehbg ] && source ~/.fehbg
 
@@ -44,7 +38,7 @@ echo "Set backgroud color $BGCOLOR"
 hsetroot -solid $BGCOLOR
 
 compton --config ~/.i3/compton.conf &
-xrandr --output LVDS --gamma 1:1:.1 --brightness 0.5
+xrandr --output LVDS --gamma 1:1:.5 --brightness 0.5
 xrandr --output VGA-0 --gamma 1:1:1 --brightness 0.5
 #dunst -config ~/.i3/dunstrc &
 unclutter -root -visible &

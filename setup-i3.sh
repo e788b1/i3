@@ -14,3 +14,11 @@ ln -sv /tmp/thumbnails .thumbnails
 [ ! -d .icons ] && ln -sv .i3/icons .icons
 [ ! -d .vim ] && ln -sv .i3/vim .vim
 ln -sv .i3/vim/vimrc .vimrc
+
+# ln -v ${PWD}/.i3/fonts.conf .config/fontconfig/fonts.conf
+# [ ! -d .fonts ] && ln -sv .i3/fonts .fonts
+# cd .fonts
+# mkfontdir
+# mkfontscale
+# fc-cache -fv
+# cd

@@ -5,7 +5,6 @@ Xcursor.theme: slitaz-polar
 ! Using Xft
 ! URxvt*font:           -misc-fixed-medium-r-semicondensed-*-12-90-100-*-c-60-iso8859-1
 URxvt.font  : xft:Monaco:pixelsize=13
-!URxvt.font  : xft:Terminus:pixelsize=16
 
 !-*-{ Xft settings
 ! Xft*dpi:       96
