@@ -15,6 +15,7 @@ ln -sv /tmp/thumbnails .thumbnails
 [ ! -d .vim ] && ln -sv .i3/vim .vim
 ln -sv .i3/vim/vimrc .vimrc
 
+cp -v .i3/fonts.conf .config/fontconfig/fonts.conf
 # ln -v ${PWD}/.i3/fonts.conf .config/fontconfig/fonts.conf
 # [ ! -d .fonts ] && ln -sv .i3/fonts .fonts
 # cd .fonts

@@ -4,17 +4,20 @@ Xcursor.theme: slitaz-polar
 
 ! Using Xft
 ! URxvt*font:           -misc-fixed-medium-r-semicondensed-*-12-90-100-*-c-60-iso8859-1
-URxvt.font  : xft:Monaco:pixelsize=13
+! URxvt.font:             xft:Monaco:pixelsize=13:antialias=true:hinting=Full:hintingn=hintslight
+URxvt*font:             xft:Terminus:size=12
+URxvt*boldFont:         xft:Terminus:size=12
+! URxvt*font: xft:Source\ Code\ Pro\ ExtraLight:pixelsize=13:antialias=true:hinting=true
 
 !-*-{ Xft settings
 ! Xft*dpi:       96
-Xft*antialias: True
-Xft*hinting:   Full
-Xft.hintstyle : hintslight
+! Xft*antialias: True
+! Xft*hinting:   Full
+! Xft.hintstyle : hintslight
 !Xft.rgba      : rgb
 !-*-}
 
-URxvt.letterSpace : -1
+! URxvt.letterSpace : -1
 URxvt.termName    : rxvt-256color
 URxvt.iso14755    : false
 

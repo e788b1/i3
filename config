@@ -20,6 +20,7 @@ for_window [class="^7zFM$"] floating enable
 for_window [class="^Vlc$"] floating enable
 for_window [class="^feh$"] floating enable
 for_window [class="^Smplayer$"] floating enable
+for_window [class="^Mousepad$"] floating enable
 for_window [class="^Xfce4-appfinder$"] floating enable
 for_window [class="^Thunar$" title="^File\ Operation\ Progress$" instance="^thunar$"] floating enable
 for_window [title="Chrono Download Manager"] floating enable
