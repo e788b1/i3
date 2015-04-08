@@ -1,2 +1,3 @@
 xrandr --output VGA-0 --gamma 1:1:.1 --brightness 0.5
 echo -e "\e[3$(( $RANDOM * 6 / 32767 + 1 ))mHello World."
+c1:12345:respawn:/sbin/agetty -a e788b1 --noclear 38400 tty1 linux
