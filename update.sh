@@ -12,5 +12,5 @@ do
 done
 
 git add .
-git commit -m 'update i3 config'
+git commit -m 'update'
 git push origin master
