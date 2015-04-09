@@ -1,11 +1,12 @@
+## i3 config file
+
 # Set super as Mod
 set $mod Mod4
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
 # force_xinerama yes
 
-# Style
+################################ Style ################################
 font xft:Ubuntu bold 10
 
 set $blue #005588
@@ -14,6 +15,7 @@ set $gray2 #333333
 client.focused            $gray1   $gray1   #FFFFFF   #333333
 client.focused_inactive   $gray2   $gray2   #FFFFFF   #000000
 client.unfocused          $gray2   $gray2   #FFFFFF   #000000
+
 for_window [class="^Nomacs$"] floating enable, border normal
 for_window [class="^Subl$"] floating enable, border normal
 for_window [class="^7zFM$"] floating enable, border normal
@@ -27,16 +29,15 @@ for_window [title="Chrono Download Manager"] floating enable, border normal
 
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
+
 popup_during_fullscreen smart
 
 new_window 1pixel
 focus_follows_mouse  no
 force_focus_wrapping yes
 
-
 ################################ auto start ################################
 # exec --no-startup-id google-chrome-stable
-
 ################################ app shortcut ################################
 bindsym $mod+Return exec --no-startup-id urxvtc
 bindsym $mod+Shift+Return exec --no-startup-id google-chrome-stable
@@ -79,41 +80,30 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+bindsym $mod+d focus parent
+bindsym $mod+b focus child
+bindsym $mod+space focus mode_toggle
+
+# tab focus or move
+bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Shift+Tab move container to workspace back_and_forth; workspace back_and_forth
 
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
+bindsym $mod+semicolon move workspace to output right
 
-# split in horizontal orientation
+# layout
 bindsym $mod+v split h
-
-# split in vertical orientation
 bindsym $mod+g split v
-
-# enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
+bindsym $mod+Shift+f floating toggle
 
 # change container layout (tabbed, toggle split)
 bindsym $mod+n layout tabbed
 bindsym $mod+m layout toggle split
-
-# container navigation
-bindsym $mod+d focus parent
-bindsym $mod+b focus child
-
-# move container between displays
-bindsym $mod+semicolon move workspace to output right
-
-# toggle tiling / floating
-bindsym $mod+Shift+f floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# switch to last workspace
-bindsym $mod+6 workspace back_and_forth
 
 # switch to workspace
 bindsym $mod+q workspace 1: q
@@ -137,13 +127,6 @@ bindsym $mod+Shift+u move container to workspace 7: u
 bindsym $mod+Shift+i move container to workspace 8: i
 bindsym $mod+Shift+o move container to workspace 9: o
 
-bindsym $mod+Tab workspace back_and_forth
-bindsym $mod+Shift+Tab move container to workspace back_and_forth; workspace back_and_forth
-
-bindsym $mod+x reload
-bindsym $mod+Shift+x restart
-bindsym $mod+Shift+BackSpace exit
-
 mode "resize" {
         bindsym h   resize shrink width 10 px or 10 ppt
         bindsym j   resize grow height 10 px or 10 ppt
@@ -156,29 +139,15 @@ mode "resize" {
         bindsym Escape mode "default"
         bindcode Control+34 mode "default"
 }
-
 bindsym $mod+s mode "resize"
 
-# multimedia keys
-#bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '3%+'"
-#bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '1%-'"
-#bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
-#bindsym XF86AudioMicMute exec "amixer -D pulse sset Capture toggle"
-
-bindsym XF86AudioPlay exec mpc toggle
-bindsym XF86AudioStop exec mpc stop
-bindsym XF86AudioNext exec mpc next
-bindsym XF86AudioPrev exec mpc previous
-
-#bindsym XF86KbdBrightnessDown exec "sudo /opt/kbdlight/bin/kbdlight -"
-#bindsym XF86KbdBrightnessUp exec "sudo /opt/kbdlight/bin/kbdlight +"
+################################ misc ################################
+bindsym $mod+x reload
+bindsym $mod+Shift+x restart
+bindsym $mod+Shift+BackSpace exit
 #bindsym XF86TouchpadToggle exec "synclient TouchpadOff=$(synclient | awk '/TouchpadOff/ {print ($3+1)%2}')"
 
-#bindsym XF86Display exec "arandr"
-
-#bindsym $mod+a exec "urxvtc -e alsamixer"
-#bindsym $mod+Shift+a exec "pavucontrol"
-
+################################ BAR ################################
 bar {
         position top
         # status_command ~/.i3/bin/conky-wrapper
@@ -191,4 +160,4 @@ bar {
                 inactive_workspace $gray1 $gray1 #AAAAAA
         }
 }
-
+# EOF
