@@ -44,8 +44,8 @@ URxvt.keysym.M-x           : perl:keyboard-select:activate
 URxvt.keysym.M-c           : perl:clipboard:copy
 URxvt.keysym.M-v           : perl:clipboard:paste
 URxvt.keysym.M-C-v         : perl:clipboard:paste_escaped
-!URxvt.copyCommand         : xsel -ib
-!URxvt.pasteCommand        : xsel -ob
+URxvt.copyCommand          : xsel -ib
+URxvt.pasteCommand         : xsel -ob
 URxvt.keysym.C-equal       : perl:font-size:increase
 URxvt.keysym.C-minus       : perl:font-size:decrease
 URxvt.url-select.launcher  : google-chrome-stable

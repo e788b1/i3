@@ -33,33 +33,25 @@ new_window 1pixel
 focus_follows_mouse  no
 force_focus_wrapping yes
 
-bindsym $mod+9 border normal
-bindsym $mod+0 border none
 
-# Make the currently focused window a scratchpad
-bindsym $mod+Shift+minus move scratchpad
-
-# Show the first scratchpad window
-bindsym $mod+minus scratchpad show
-
-# auto start
+################################ auto start ################################
 # exec --no-startup-id google-chrome-stable
 
-# app shortcut
+################################ app shortcut ################################
 bindsym $mod+Return exec --no-startup-id urxvtc
 bindsym $mod+Shift+Return exec --no-startup-id google-chrome-stable
 bindsym $mod+Shift+comma exec --no-startup-id xcalib -i -a
 bindsym $mod+slash exec --no-startup-id thunar
-bindsym $mod+F2 exec --no-startup-id xfce4-appfinder
 bindsym $mod+greater exec --no-startup-id qcomicbook
 bindsym $mod+Print exec --no-startup-id scrot -u -e 'mv $f /tmp/ && nomacs /tmp/$f'
 bindsym Print exec --no-startup-id scrot -e 'mv $f /tmp/ && nomacs /tmp/$f'
 bindsym --release Ctrl+Print exec --no-startup-id scrot -s -e 'mv $f /tmp/ && nomacs /tmp/$f'
 bindsym $mod+Shift+c kill
 bindsym $mod+p exec --no-startup-id "dmenu_run -nb black -p run"
+bindsym $mod+a exec --no-startup-id xfce4-appfinder
 bindsym Control+$mod+l exec --no-startup-id i3lock -c $(printf '%06X\n' $(($RANDOM * 512)))
 
-# rerote srceen
+################################ rerote srceen ################################
 bindsym $mod+Shift+Up exec --no-startup-id xrandr --output LVDS --rotate normal
 bindsym $mod+Shift+Down exec --no-startup-id xrandr --output LVDS --rotate inverted
 bindsym $mod+Shift+Left exec --no-startup-id xrandr --output LVDS --rotate left
@@ -69,11 +61,17 @@ bindsym Control+$mod+Down exec --no-startup-id xrandr --output VGA-0 --rotate in
 bindsym Control+$mod+Left exec --no-startup-id xrandr --output VGA-0 --rotate left
 bindsym Control+$mod+Right exec --no-startup-id xrandr --output VGA-0 --rotate right
 
+################################ windows control ################################
+bindsym $mod+9 border normal
+bindsym $mod+0 border none
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
 # mark and goto
 bindsym $mod+Shift+z exec i3-input -F 'mark %s' -P 'Mark name: '
 bindsym $mod+z exec i3-input -F '[con_mark=%s] focus' -P 'Go to mark: '
 
-bindsym $mod+grave exec ~/.i3/bin/list_i3_windows.py
+# show windows list
+bindsym $mod+grave exec --no-startup-id ~/.i3/bin/list_i3_windows.py
 
 
 # change focus
