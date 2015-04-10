@@ -596,7 +596,7 @@ let g:NERDSpaceDelims=1
 " for repeat -> enhance surround.vim, . to repeat command
 " Bundle 'tpope/vim-repeat'
 " cs"'
-" Hello world!" -> 'Hello world!'
+" "Hello world!" -> 'Hello world!'
 " ds"
 " "Hello world!" -> Hello world!
 " ysiw"

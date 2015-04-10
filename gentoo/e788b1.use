@@ -37,3 +37,4 @@ media-fonts/source-han-sans linguas_zh_CN
 # required by kde-base/kdebase-meta-4.14.3[-minimal]
 # required by kdebase-meta (argument)
 =dev-python/PyQt4-4.11.1 webkit svg declarative sql script
+x11-misc/redshift -gtk
