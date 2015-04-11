@@ -1,2 +1,3 @@
 # word sort
 tr ' ' '\n' <<< "zebra ant spider spider ant zebra ant" | sort -u | tr '\n' ' '
+VBoxManage setextradata "Android2.3" "CustomVideoMode3" "480x720x16"

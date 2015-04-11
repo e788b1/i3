@@ -1,6 +1,8 @@
 app-admin/sudo
 app-admin/syslog-ng
+app-arch/atool
 app-arch/p7zip
+app-arch/xarchiver
 app-editors/hexedit
 app-editors/mousepad
 app-editors/vim
@@ -21,6 +23,7 @@ dev-python/PyQt4
 dev-python/i3-py
 dev-python/python-mpd
 dev-qt/qtwebkit
+dev-util/android-tools
 dev-util/ccache
 media-fonts/monaco
 media-fonts/terminus-font
@@ -32,17 +35,17 @@ media-sound/mpc
 media-sound/mpd
 media-sound/ncmpc
 media-video/smplayer
-media-video/vlc
 net-analyzer/nmap
 net-dns/bind-tools
-net-dns/dnsmasq
 net-misc/aria2
 net-misc/dhcpcd
 net-misc/netifrc
 net-proxy/goagent
 net-wireless/wpa_supplicant
+sci-calculators/qalculate-gtk
 sys-apps/lm_sensors
 sys-apps/mlocate
+sys-apps/most
 sys-apps/pciutils
 sys-block/gparted
 sys-fs/dosfstools
@@ -66,6 +69,7 @@ x11-misc/i3lock
 x11-misc/py3status
 x11-misc/qcomicbook
 x11-misc/redshift
+x11-misc/rofi
 x11-misc/unclutter
 x11-misc/urxvt-font-size
 x11-misc/urxvt-perls
