@@ -9,7 +9,10 @@ x11-libs/libdrm libkms
 xfce-extra/tumbler ffmpeg
 x11-libs/libxcb xkb
 dev-libs/nss utils
+media-libs/mesa gles1 gles2 openvg osmesa xa
 dev-qt/qtgui gtkstyle
+app-i18n/fbterm caps video_cards_vesa
+sys-apps/kmscon pango pixman
 dev-util/cmake -qt4
 gnome-base/gvfs -http
 media-libs/libpng apng
@@ -24,6 +27,8 @@ app-arch/zip natspec
 dev-libs/elfutils static-libs
 dev-lang/python sqlite
 media-video/vlc libass dvd ffmpeg mpeg mad wxwindows aac dts a52 ogg flac theora oggvorbis matroska freetype bidi xv svga gnutls stream vlm httpd cdda vcd cdio live
+media-video/mplayer libcaca
+www-client/w3m fbcon imlib
 media-fonts/source-han-sans linguas_zh_CN
 # required by app-office/akonadi-server-1.13.0[qt4]
 # required by kde-base/kdepimlibs-4.14.3

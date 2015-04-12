@@ -38,6 +38,8 @@ BGCOLOR=`printf '#%06X\n' $(($RANDOM * 512))`
 echo "Set backgroud color $BGCOLOR"
 hsetroot -solid $BGCOLOR
 
+# xfsettingsd &
+
 compton --config ~/.i3/compton.conf &
 # xrandr --output LVDS --gamma 1:1:.5 --brightness 0.5 --dpi 108
 # xrandr --output VGA-0 --gamma 1:1:1 --brightness 0.5 --dpi 108

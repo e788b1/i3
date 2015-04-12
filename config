@@ -19,6 +19,8 @@ client.unfocused          $gray2   $gray2   #FFFFFF   #000000
 for_window [class="^Nomacs$"] floating enable, border normal
 for_window [class="^Subl$"] floating enable, border normal
 for_window [class="^7zFM$"] floating enable, border normal
+for_window [class="^Lxappearance$"] floating enable, border normal
+for_window [class="^Qtconfig$"] floating enable, border normal
 for_window [class="^Vlc$"] floating enable, border normal
 for_window [class="^feh$"] floating enable, border normal
 for_window [class="^Qalculate-gtk$"] floating enable, border normal
@@ -43,14 +45,14 @@ force_focus_wrapping yes
 
 ################################ auto start ################################
 # exec --no-startup-id google-chrome-stable
-exec --no-startup-id urxvt -name urxvt_scratchpad --geometry 72x40
-for_window [class="URxvt" instance="urxvt_scratchpad"] floating enable; move scratchpad; scratchpad show; move position 200px 200px; move scratchpad
+# exec --no-startup-id urxvt -name urxvt_scratchpad --geometry 72x40
+# for_window [class="URxvt" instance="urxvt_scratchpad"] floating enable; move scratchpad; scratchpad show; move position 100px 100px; move scratchpad
 
 ################################ app shortcut ################################
 bindsym $mod+Return exec --no-startup-id urxvtc
-bindsym $mod+Shift+Return exec --no-startup-id google-chrome-stable
+bindsym $mod+Shift+Return exec --no-startup-id chromium
 bindsym $mod+Shift+comma exec --no-startup-id xcalib -i -a
-bindsym $mod+slash exec --no-startup-id thunar
+bindsym $mod+slash exec --no-startup-id pcmanfm
 bindsym $mod+greater exec --no-startup-id qcomicbook
 bindsym $mod+Print exec --no-startup-id scrot -u -e 'mv $f /tmp/ && nomacs /tmp/$f'
 bindsym Print exec --no-startup-id scrot -e 'mv $f /tmp/ && nomacs /tmp/$f'
@@ -61,6 +63,9 @@ bindsym $mod+p exec --no-startup-id dmenu_run -nb '#222222' -nf '#ceecee' -sb '#
 bindsym $mod+a exec --no-startup-id xfce4-appfinder
 bindsym $mod+Escape exec --no-startup-id rofi -i3 -now -font "Inconsolata-10" -fg "#9f9f9f" -bg "#2c2c2e" -hlfg "#2c2c2e" -hlbg "#ccdc90" -o 85
 bindsym Control+$mod+l exec --no-startup-id i3lock -c $(printf '%06X\n' $(($RANDOM * 512)))
+
+bindsym $mod+1 exec --no-startup-id VBoxManage startvm "android"
+bindsym $mod+2 exec --no-startup-id VBoxManage startvm "XP64"
 
 ################################ rerote srceen ################################
 bindsym $mod+Shift+Up exec --no-startup-id xrandr --output LVDS --rotate normal

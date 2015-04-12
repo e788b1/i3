@@ -5,3 +5,4 @@
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 PATH="/usr/lib/ccache/bin:/opt/bin:${PATH}"
 [ ! -d /tmp/thumbnails ] && [[ $(tty) = "/dev/tty1" ]] && exec startx
+[[ $(tty) = "/dev/tty2" ]] && exec fbterm

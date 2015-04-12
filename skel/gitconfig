@@ -1,0 +1,5 @@
+[http]
+	sslVerify = false
+[user]
+	email = e788b1@gmail.com
+	name = e788b1
