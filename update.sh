@@ -2,13 +2,12 @@
 
 cd ~/.i3
 files="
-    /etc/portage/make.conf
-    /etc/portage/package.use/e788b1.use
+    /etc/portage/
     /var/lib/portage/world
 "
 for file in $files
 do
-    cp -v $file gentoo/
+    cp -rv $file gentoo/
 done
 
 git add .

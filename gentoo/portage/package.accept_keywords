@@ -1,0 +1,36 @@
+# required by @selected
+# required by @world (argument)
+=www-client/google-chrome-41.0.2272.118_p1 ~amd64
+# required by @selected
+# required by @world (argument)
+=x11-misc/py3status-2.4 ~amd64
+# required by monaco (argument)
+=media-fonts/monaco-5.1 ~amd64
+# required by i3-py (argument)
+=dev-python/i3-py-0.6.4 ~amd64
+media-fonts/* ~amd64
+# required by net-proxy/goagent-3.2.2::gentoo-zh
+# required by goagent (argument)
+=dev-python/pygeoip-0.3.1 ~amd64
+# required by net-proxy/goagent-3.2.2::gentoo-zh
+# required by goagent (argument)
+=net-libs/pacparser-1.3.1 ~amd64
+# required by goagent (argument)
+net-proxy/goagent **
+x11-wm/i3 ~amd64
+x11-misc/i3status ~amd64
+# required by android-tools (argument)
+=dev-util/android-tools-0_p20130218 ~amd64
+# media-video/vlc ~amd64
+# required by x11-themes/smplayer-skins (argument)
+=x11-themes/smplayer-skins-15.2.0 ~amd64
+# required by xarchiver (argument)
+=app-arch/xarchiver-0.5.3-r1 ~amd64
+# required by x11-misc/rofi (argument)
+=x11-misc/rofi-0.14.12 ~amd64
+# required by sci-calculators/qalculator (argument)
+=sci-calculators/qalculator-0.4b ~amd64
+# required by fbterm (argument)
+=app-i18n/fbterm-1.7-r1 ~amd64
+# required by kmscon (argument)
+=sys-apps/kmscon-8 ~amd64

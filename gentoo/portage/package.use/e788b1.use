@@ -1,0 +1,46 @@
+app-arch/p7zip rar wxwidgets
+gnome-base/gvfs archive fuse
+x11-misc/rofi i3
+app-editors/vim cscope
+app-emulation/virtualbox extensions
+app-i18n/fcitx -autostart -enchant -lua
+app-text/ghostscript-gpl cups
+x11-libs/libdrm libkms
+xfce-extra/tumbler ffmpeg
+x11-libs/libxcb xkb
+dev-libs/nss utils
+media-libs/mesa gles1 gles2 openvg osmesa xa
+dev-qt/qtgui gtkstyle
+app-i18n/fbterm caps video_cards_vesa
+sys-apps/kmscon pango pixman
+dev-util/cmake -qt4
+gnome-base/gvfs -http
+media-libs/libpng apng
+net-nds/openldap minimal
+net-proxy/goagent -gtk
+sys-fs/udev gudev introspection
+sys-libs/zlib minizip
+x11-base/xorg-server glamor
+x11-terms/rxvt-unicode 256-color fading-colors
+app-arch/unzip natspec
+app-arch/zip natspec
+dev-libs/elfutils static-libs
+dev-lang/python sqlite
+media-video/vlc libass dvd ffmpeg mpeg mad wxwindows aac dts a52 ogg flac theora oggvorbis matroska freetype bidi xv svga gnutls stream vlm httpd cdda vcd cdio live
+media-video/mplayer libcaca
+www-client/w3m fbcon imlib
+media-fonts/source-han-sans linguas_zh_CN
+# required by app-office/akonadi-server-1.13.0[qt4]
+# required by kde-base/kdepimlibs-4.14.3
+# required by kde-base/drkonqi-4.14.3
+# required by kde-base/kdebase-runtime-meta-4.14.3[crash-reporter]
+# required by kde-base/kdebase-startkde-4.11.14
+# required by kde-base/kdebase-meta-4.14.3[-minimal]
+# required by kdebase-meta (argument)
+=dev-qt/qtsql-4.8.5 mysql
+# required by kde-base/pykde4-4.14.3
+# required by kde-base/plasma-workspace-4.11.14[python]
+# required by kde-base/kdebase-startkde-4.11.14
+# required by kde-base/kdebase-meta-4.14.3[-minimal]
+# required by kdebase-meta (argument)
+=dev-python/PyQt4-4.11.1 webkit svg declarative sql script

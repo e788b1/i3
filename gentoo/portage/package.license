@@ -1,0 +1,9 @@
+# required by @selected
+# required by @world (argument)
+>=www-client/google-chrome-41.0.2272.118_p1 google-chrome
+# required by @selected
+# required by @world (argument)
+=app-emulation/virtualbox-bin-4.3.18.96516 PUEL
+# required by app-emulation/virtualbox-4.3.18[extensions]
+# required by app-emulation/virtualbox (argument)
+=app-emulation/virtualbox-extpack-oracle-4.3.18.96516 PUEL
