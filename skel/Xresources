@@ -55,63 +55,63 @@ URxvt.url-select.underline : true
 
 !#include "dark.xresources"
 !Solarized + tangerine + random colours
-URxvt.pointerColorBackground : #586E75
-URxvt.pointerColorForeground : #93A1A1
-URxvt.cursorColor            : #93A1A1
-URxvt.background : #333333
-URxvt.foreground : #CCCCCC
-URxvt.colorBD : #FFFFFF
-URxvt.colorUL : #CCCC66
-! black
-URxvt.color0  : #2E3436
-URxvt.color8  : #555753
-! red
-URxvt.color1  : #DC322F
-URxvt.color9  : #E84F4F
-! green
-URxvt.color2  : #27ae60
-URxvt.color10 : #2ecc71
-! yellow
-URxvt.color3  : #f39c12
-URxvt.color11 : #f1c40f
-! blue
-URxvt.color4  : #268BD2
-URxvt.color12 : #6699FF
-! magenta
-URxvt.color5  : #9933CC
-URxvt.color13 : #CC66FF
-! cyan
-URxvt.color6  : #33CC99
-URxvt.color14 : #93A1A1
-! white
-URxvt.color7  : #EEE8D5
-URxvt.color15 : #FDF6E3
+! URxvt.pointerColorBackground : #586E75
+! URxvt.pointerColorForeground : #93A1A1
+! URxvt.cursorColor            : #93A1A1
+! URxvt.background : #333333
+! URxvt.foreground : #CCCCCC
+! URxvt.colorBD : #FFFFFF
+! URxvt.colorUL : #CCCC66
+! ! black
+! URxvt.color0  : #2E3436
+! URxvt.color8  : #555753
+! ! red
+! URxvt.color1  : #DC322F
+! URxvt.color9  : #E84F4F
+! ! green
+! URxvt.color2  : #27ae60
+! URxvt.color10 : #2ecc71
+! ! yellow
+! URxvt.color3  : #f39c12
+! URxvt.color11 : #f1c40f
+! ! blue
+! URxvt.color4  : #268BD2
+! URxvt.color12 : #6699FF
+! ! magenta
+! URxvt.color5  : #9933CC
+! URxvt.color13 : #CC66FF
+! ! cyan
+! URxvt.color6  : #33CC99
+! URxvt.color14 : #93A1A1
+! ! white
+! URxvt.color7  : #EEE8D5
+! URxvt.color15 : #FDF6E3
 
 ! gentoo theme
-! *background: #0f0f0f
-! *foreground: #c8c8c8
+*background: #0f0f0f
+*foreground: #c8c8c8
 
-! !black
-! *color0:  #251f1f
-! *color8:  #5e5e5e
-! !red
-! *color1:  #eb4509
-! *color9:  #eb4509
-! !green
-! *color2:  #94e76b
-! *color10: #95e76b
-! !yellow
-! *color3:  #ffac18
-! *color11: #ffac18
-! !blue
-! *color4:  #46aede
-! *color12: #46aede
-! !magenta
-! *color5:  #e32c57
-! *color13: #e32c57
-! !cyan
-! *color6:  #d6dbac
-! *color14: #d6dbac
-! !white
-! *color7:  #efefef
-! *color15: #efefef
+!black
+*color0:  #251f1f
+*color8:  #5e5e5e
+!red
+*color1:  #eb4509
+*color9:  #eb4509
+!green
+*color2:  #94e76b
+*color10: #95e76b
+!yellow
+*color3:  #ffac18
+*color11: #ffac18
+!blue
+*color4:  #46aede
+*color12: #46aede
+!magenta
+*color5:  #e32c57
+*color13: #e32c57
+!cyan
+*color6:  #d6dbac
+*color14: #d6dbac
+!white
+*color7:  #efefef
+*color15: #efefef

@@ -7,3 +7,5 @@
 # required by app-emulation/virtualbox-4.3.18[extensions]
 # required by app-emulation/virtualbox (argument)
 =app-emulation/virtualbox-extpack-oracle-4.3.18.96516 PUEL
+# required by www-plugins/chrome-binary-plugins (argument)
+>=www-plugins/chrome-binary-plugins-41.0.2272.118_p1:stable google-chrome

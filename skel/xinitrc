@@ -2,71 +2,28 @@
 
 # export LC_CTYPE=zh_CN.UTF-8
 export XDG_CACHE_HOME="/tmp/.cache"
-export XDG_MENU_PREFIX="lxde-"
-export XDG_CURRENT_DESKTOP=LXDE
-mkdir -pv /tmp/thumbnails
-
-# fcitx
+# export XDG_MENU_PREFIX="lxde-"
+# export XDG_CURRENT_DESKTOP=LXDE
 export XMODIFIERS="@im=fcitx"
 export QT_IM_MODULE=fcitx
 export GTK_IM_MODULE=fcitx
-~/.i3/bin/fcitx-start.sh
 
-# urxvt demon
-if [ -z `ps -ef | grep urxvtd | grep -v grep | awk '{print $2}'` ]; then
-	urxvtd -q -o -f
-fi
-
-# xset -dpms; xset s off
 # synclient TapButton1=1
 xrdb -merge ~/.i3/skel/Xresources
 xmodmap ~/.i3/skel/Xmodmap
 
-# set backgroud
+# SET SCREEN
 BGCOLOR=`printf '#%06X\n' $(($RANDOM * 512))`
-# BGCOLOR=`shuf -i 1-16777215 -n 1`
 echo "Set backgroud color $BGCOLOR"
 hsetroot -solid $BGCOLOR
+feh --bg-center "$(find ~/Pictures/ -name *.jpg | shuf -n1)"
 # [ -e ~/.fehbg ] && source ~/.fehbg
-
-# xfsettingsd &
-
+xrandr --output LVDS --gamma 1:1:.5
 compton --config ~/.i3/compton.conf &
 dunst -config ~/.i3/dunstrc &
 unclutter -root -visible &
-
-#xscreensaver -no-splash $
-
-# if [ `xrandr | grep -c ' connected '` -eq 2 ]; then # dual-monitor
-    # if [ `xrandr | grep VGA-0 | grep -c ' connected '` -eq 1 ]; then
-        # xrandr --output LVDS --auto --primary --output VGA-0 --auto --right-of LVDS
-    # fi
-    # if [ `xrandr | grep HDMI-0 | grep -c ' connected '` -eq 1 ]; then
-        # xrandr --output LVDS --auto --primary --output HDMI-0 --auto --right-of LVDS
-    # fi
-    # # feh --bg-tile ~/Wallpapers/tile8.jpg
-    # # xsetroot -solid \#cccccc
-# else
-    # xrandr --output LVDS --auto --primary --output VGA-0 --off --output HDMI-0 --off
-    # # feh --bg-center ~/Wallpapers/paperart5.jpg
-# fi
-
-#creating gpg agent
-GPG_ENVFILE="$HOME/.gnupg/gpg-agent.env"
-if [ -x $(which gpg-agent) ]; then
-    eval "$(gpg-agent --enable-ssh-support --daemon --write-env-file "$GPG_ENVFILE")"
-    export GPG_AGENT_INFO
-fi
+[[ -z `pgrep urxvtd` ]] && urxvtd -q -o -f
+~/.i3/bin/fcitx-start.sh
 
 eval `ck-launch-session dbus-launch --sh-syntax --exit-with-session`
-i3
-
-# case $(tty | cut -b9-) in
-    # (1) i3;;
-    # (2) startlxde;;
-# esac
-
-#getting rid of gpg agent
-[ -x $(which gpg-agent) ] && kill $(grep GPG_AGENT_INFO "$GPG_ENVFILE" | cut -d: -f 2) 2>/dev/null
-
-true
+exec i3
