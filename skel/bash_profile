@@ -3,6 +3,12 @@
 # This file is sourced by bash for login shells.  The following line
 # runs your .bashrc and is recommended by the bash info pages.
 [[ -f ~/.bashrc ]] && . ~/.bashrc
-PATH="/usr/lib/ccache/bin:/opt/bin:${PATH}"
-[ ! -d /tmp/thumbnails ] && [[ $(tty) = "/dev/tty1" ]] && exec startx
-[[ $(tty) = "/dev/tty2" ]] && exec fbterm
+PATH="/usr/lib/ccache/bin:/opt/bin:${PATH}:$HOME/.i3/bin"
+
+# Atuostart X
+if [ ! -d /tmp/thumbnails ]; then
+    mkdir -v /tmp/thumbnails
+    [[ $(tty) = "/dev/tty1" ]] && exec startx
+fi
+
+[[ $(tty) = "/dev/tty4" ]] && exec fbterm

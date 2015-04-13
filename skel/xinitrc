@@ -1,56 +1,41 @@
 #!/bin/sh
 
-# env
 # export LC_CTYPE=zh_CN.UTF-8
-#export PATH="$PATH:$HOME/.i3/bin"
 export XDG_CACHE_HOME="/tmp/.cache"
+export XDG_MENU_PREFIX="lxde-"
+export XDG_CURRENT_DESKTOP=LXDE
 mkdir -pv /tmp/thumbnails
 
-# fcitx @ e788b1
+# fcitx
 export XMODIFIERS="@im=fcitx"
 export QT_IM_MODULE=fcitx
 export GTK_IM_MODULE=fcitx
 ~/.i3/bin/fcitx-start.sh
-
-# goagent
-#if [ -z `ps -ef | grep goagent/local/proxy.py | grep -v grep | awk '{print $2}'` ]; then
-#	python /opt/goagent/local/proxy.py > /dev/null 2>&1  &
-#fi
 
 # urxvt demon
 if [ -z `ps -ef | grep urxvtd | grep -v grep | awk '{print $2}'` ]; then
 	urxvtd -q -o -f
 fi
 
-#settings
-# xset -b
-# xset s 3600 3600
 # xset -dpms; xset s off
 # synclient TapButton1=1
 xrdb -merge ~/.i3/skel/Xresources
 xmodmap ~/.i3/skel/Xmodmap
 
-# [ -e ~/.fehbg ] && source ~/.fehbg
-
-# set backgroud color
+# set backgroud
 BGCOLOR=`printf '#%06X\n' $(($RANDOM * 512))`
 # BGCOLOR=`shuf -i 1-16777215 -n 1`
 echo "Set backgroud color $BGCOLOR"
 hsetroot -solid $BGCOLOR
+# [ -e ~/.fehbg ] && source ~/.fehbg
 
 # xfsettingsd &
 
 compton --config ~/.i3/compton.conf &
-# xrandr --output LVDS --gamma 1:1:.5 --brightness 0.5 --dpi 108
-# xrandr --output VGA-0 --gamma 1:1:1 --brightness 0.5 --dpi 108
-#dunst -config ~/.i3/dunstrc &
+dunst -config ~/.i3/dunstrc &
 unclutter -root -visible &
 
-# xrandr --output VGA-0 --mode 1440x900 --rate 75
 #xscreensaver -no-splash $
-# redshift -l 30.35:114.17 -m randr -t 5500:4500 -g 0.75:0.75:0.75 &
-# redshift -l 30.35:114.17 -t 5700:3600 -g 0.8 -m randr &
-redshift-gtk &
 
 # if [ `xrandr | grep -c ' connected '` -eq 2 ]; then # dual-monitor
     # if [ `xrandr | grep VGA-0 | grep -c ' connected '` -eq 1 ]; then
@@ -75,6 +60,11 @@ fi
 
 eval `ck-launch-session dbus-launch --sh-syntax --exit-with-session`
 i3
+
+# case $(tty | cut -b9-) in
+    # (1) i3;;
+    # (2) startlxde;;
+# esac
 
 #getting rid of gpg agent
 [ -x $(which gpg-agent) ] && kill $(grep GPG_AGENT_INFO "$GPG_ENVFILE" | cut -d: -f 2) 2>/dev/null

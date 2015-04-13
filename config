@@ -9,13 +9,31 @@ floating_modifier $mod
 ################################ Style ################################
 font xft:Ubuntu bold 10
 
-set $blue #005588
-set $gray1 #484848
-set $gray2 #333333
-client.focused            $gray1   $gray1   #FFFFFF   #333333
-client.focused_inactive   $gray2   $gray2   #FFFFFF   #000000
-client.unfocused          $gray2   $gray2   #FFFFFF   #000000
+set $color0  #3b5998
+set $color1  #333333
+set $color2  #ffffff
 
+# class                 border  backgr  text    indicator
+client.focused          $color0 $color0 $color2 #FF0000
+client.focused_inactive $color1 $color1 $color0 #00FF00
+
+bar {
+        position top
+        # status_command ~/.i3/bin/conky-wrapper
+        # status_command ~/.i3/bin/mystatus.sh
+        status_command py3status -c ~/.i3/i3status.conf
+        colors {
+                background $color0
+                statusline $color2
+                separator  #666666
+                #colorclass        border  backgr  text
+                focused_workspace  $color2 $color2 $color0
+                active_workspace   $color1 $color1 $color2
+                inactive_workspace $color0 $color0 $color2
+        }
+}
+
+################################ FOR_WINDOW ##########################
 for_window [class="^Nomacs$"] floating enable, border normal
 for_window [class="^Subl$"] floating enable, border normal
 for_window [class="^7zFM$"] floating enable, border normal
@@ -26,10 +44,11 @@ for_window [class="^feh$"] floating enable, border normal
 for_window [class="^Qalculate-gtk$"] floating enable, border normal
 for_window [class="^VirtualBox$"] floating enable, border normal
 for_window [class="^Smplayer$"] floating enable, border normal
+for_window [class="^Gpicview$"] floating enable, border normal
 for_window [class="^Mousepad$"] floating enable, border normal
 for_window [class="^Xfce4-appfinder$"] floating enable, border normal
 for_window [class="^Thunar$" title="^File\ Operation\ Progress$" instance="^thunar$"] floating enable, border normal
-for_window [title="Chrono Download Manager"] floating enable, border normal
+for_window [title="alsamixer" class="^URxvt$"] floating enable, border normal
 
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
@@ -58,10 +77,9 @@ bindsym $mod+Print exec --no-startup-id scrot -u -e 'mv $f /tmp/ && nomacs /tmp/
 bindsym Print exec --no-startup-id scrot -e 'mv $f /tmp/ && nomacs /tmp/$f'
 bindsym --release Ctrl+Print exec --no-startup-id scrot -s -e 'mv $f /tmp/ && nomacs /tmp/$f'
 bindsym $mod+Shift+c kill
-bindsym $mod+p exec --no-startup-id dmenu_run -nb '#222222' -nf '#ceecee' -sb '#f8f893' -sf '#222222' -p 'run' -i
 # bindsym $mod+p exec --no-startup-id dmenu_run -nb black -p 'run' -i -l 23
-bindsym $mod+a exec --no-startup-id xfce4-appfinder
-bindsym $mod+Escape exec --no-startup-id rofi -i3 -now -font "Inconsolata-10" -fg "#9f9f9f" -bg "#2c2c2e" -hlfg "#2c2c2e" -hlbg "#ccdc90" -o 85
+bindsym $mod+a exec --no-startup-id dmenu_run -nb '#222222' -nf '#ceecee' -sb '#f8f893' -sf '#222222' -p 'run' -i
+bindsym $mod+Escape exec --no-startup-id rofi -i3 -now -font "Inconsolata-10" -fg "#9f9f9f" -bg "#2c2c2e" -hlfg "$color0" -hlbg "$color1" -o 85
 bindsym Control+$mod+l exec --no-startup-id i3lock -c $(printf '%06X\n' $(($RANDOM * 512)))
 
 bindsym $mod+1 exec --no-startup-id VBoxManage startvm "android"
@@ -162,17 +180,3 @@ bindsym $mod+Shift+x restart
 bindsym $mod+Shift+BackSpace exit
 #bindsym XF86TouchpadToggle exec "synclient TouchpadOff=$(synclient | awk '/TouchpadOff/ {print ($3+1)%2}')"
 
-################################ BAR ################################
-bar {
-        position top
-        # status_command ~/.i3/bin/conky-wrapper
-        # status_command ~/.i3/bin/mystatus.sh
-        status_command py3status -c ~/.i3/i3status.conf
-        colors {
-                statusline #AAAAAA
-                background #333333
-                focused_workspace $gray2 $gray2 #FFFFFF
-                inactive_workspace $gray1 $gray1 #AAAAAA
-        }
-}
-# EOF

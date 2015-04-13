@@ -28,6 +28,7 @@ dev-qt/qtwebkit
 dev-util/android-tools
 dev-util/ccache
 lxde-base/lxappearance
+lxde-base/lxmenu-data
 media-fonts/monaco
 media-fonts/terminus-font
 media-fonts/ubuntu-font-family
@@ -76,7 +77,6 @@ x11-misc/i3lock
 x11-misc/pcmanfm
 x11-misc/py3status
 x11-misc/qcomicbook
-x11-misc/redshift
 x11-misc/rofi
 x11-misc/unclutter
 x11-misc/urxvt-font-size

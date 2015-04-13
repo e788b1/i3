@@ -1,4 +1,4 @@
-app-arch/p7zip rar wxwidgets
+app-arch/p7zip rar
 gnome-base/gvfs archive fuse
 x11-misc/rofi i3
 app-editors/vim cscope
