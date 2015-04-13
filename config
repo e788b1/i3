@@ -9,9 +9,13 @@ floating_modifier $mod
 ################################ Style ################################
 font xft:Ubuntu bold 10
 
+# facebook palette
 set $color0  #3b5998
-set $color1  #333333
-set $color2  #ffffff
+set $color1  #8b9dc3
+set $color2  #dfe3ee
+set $color3  #fefefe
+set $color4  #ffffff
+
 
 # class                 border  backgr  text    indicator
 client.focused          $color0 $color0 $color2 #FF0000
