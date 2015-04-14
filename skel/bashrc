@@ -28,3 +28,5 @@ set -o vi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+echo -e "\e[3$(( $RANDOM * 6 / 32767 + 1 ))mChop wood, carry water.\n"

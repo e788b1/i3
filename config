@@ -85,6 +85,9 @@ exec --no-startup-id unclutter -root -visible
 # exec --no-startup-id urxvt -name urxvt_scratchpad --geometry 72x40
 # for_window [class="URxvt" instance="urxvt_scratchpad"] floating enable; move scratchpad; scratchpad show; move position 100px 100px; move scratchpad
 
+################################ COOL KEY ################################
+bindsym $mod+1 exec --no-startup-id .i3/bin/get_500px.sh
+
 ################################ app shortcut ################################
 bindsym $mod+Return exec --no-startup-id urxvtc
 bindsym $mod+Shift+Return exec --no-startup-id chromium

@@ -35,19 +35,15 @@ make -j5 && make modules_install
 make install
 
 /etc/conf.d/hostname
-kindle
 
 /etc/conf.d/net
 modules="wpa_supplicant"
 wpa_supplicant_eth0="-Dnl80211"
 
-emerge --ask --noreplace net-misc/netifrc
-
-passwd
-
-syslog-ng cronie mlocate dhcpcd
+emerge --ask --noreplace net-misc/netifrc syslog-ng cronie mlocate dhcpcd
 rc-update add syslog-ng default
 rc-update add cronie default
+passwd
 
 useradd -m -G users,wheel,audio -s /bin/bash kindle
 passwd kindle
