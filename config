@@ -68,6 +68,12 @@ focus_follows_mouse  no
 force_focus_wrapping yes
 
 ################################ auto start ################################
+exec --no-startup-id dunst -config ~/.i3/dunstrc
+exec --no-startup-id compton --config ~/.i3/compton.conf
+exec --no-startup-id feh --bg-center "$(find ~/Pictures/ -name *.jpg | shuf -n1)"
+exec --no-startup-id ~/.i3/bin/fcitx-start.sh
+exec --no-startup-id unclutter -root -visible
+
 # exec --no-startup-id google-chrome-stable
 # exec --no-startup-id urxvt -name urxvt_scratchpad --geometry 72x40
 # for_window [class="URxvt" instance="urxvt_scratchpad"] floating enable; move scratchpad; scratchpad show; move position 100px 100px; move scratchpad

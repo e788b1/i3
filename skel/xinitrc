@@ -6,19 +6,16 @@ export XMODIFIERS="@im=fcitx"
 export QT_IM_MODULE=fcitx
 export GTK_IM_MODULE=fcitx
 
-# synclient TapButton1=1
 xrdb -merge ~/.i3/skel/Xresources
 xmodmap ~/.i3/skel/Xmodmap
 BGCOLOR=`printf '#%06X\n' $(($RANDOM * 512))`
 echo "Set backgroud color $BGCOLOR"
 hsetroot -solid $BGCOLOR
-feh --bg-center "$(find ~/Pictures/ -name *.jpg | shuf -n1)"
+# synclient TapButton1=1
+# feh --bg-center "$(find ~/Pictures/ -name *.jpg | shuf -n1)"
 # [ -e ~/.fehbg ] && source ~/.fehbg
-compton --config ~/.i3/compton.conf &
-dunst -config ~/.i3/dunstrc &
-unclutter -root -visible &
+# compton --config ~/.i3/compton.conf &
+# unclutter -root -visible &
 [[ -z `pgrep urxvtd` ]] && urxvtd -q -o -f
-~/.i3/bin/fcitx-start.sh
-
 eval `ck-launch-session dbus-launch --sh-syntax --exit-with-session`
-exec i3
+i3
