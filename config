@@ -88,7 +88,7 @@ exec --no-startup-id unclutter -root -visible
 ################################ app shortcut ################################
 bindsym $mod+Return exec --no-startup-id urxvtc
 bindsym $mod+Shift+Return exec --no-startup-id chromium
-bindsym $mod+Shift+comma exec --no-startup-id xcalib -i -a
+bindsym $mod+comma exec --no-startup-id xcalib -i -a
 bindsym $mod+slash exec --no-startup-id pcmanfm
 bindsym $mod+greater exec --no-startup-id qcomicbook
 bindsym $mod+Print exec --no-startup-id scrot -u -e 'mv $f /tmp/ && feh /tmp/$f'
@@ -114,6 +114,8 @@ bindsym Control+$mod+Up exec --no-startup-id xrandr --output VGA-0 --rotate norm
 bindsym Control+$mod+Down exec --no-startup-id xrandr --output VGA-0 --rotate inverted
 bindsym Control+$mod+Left exec --no-startup-id xrandr --output VGA-0 --rotate left
 bindsym Control+$mod+Right exec --no-startup-id xrandr --output VGA-0 --rotate right
+
+bindsym $mod+Shift+comma exec i3-input -F 'xrandr --output LVDS --gamma %s' -P 'set gamma: '
 
 ################################ windows control ################################
 bindsym $mod+9 border normal
