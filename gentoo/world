@@ -11,6 +11,7 @@ app-editors/vim
 app-emulation/virtualbox
 app-i18n/fbterm
 app-i18n/fcitx
+app-i18n/fcitx-configtool
 app-misc/fdupes
 app-misc/ranger
 app-portage/eix
@@ -90,6 +91,5 @@ x11-misc/xcalib
 x11-misc/xclip
 x11-misc/xsel
 x11-terms/rxvt-unicode
-x11-themes/greybird
 x11-themes/qtcurve
 x11-wm/i3

@@ -17,6 +17,14 @@
 			},
 			"buffers":
 			[
+				{
+					"file": "/home/e788b1/.p7zip",
+					"settings":
+					{
+						"buffer_size": 1263,
+						"line_ending": "Unix"
+					}
+				}
 			],
 			"build_system": "",
 			"command_palette":
@@ -42,6 +50,12 @@
 			},
 			"file_history":
 			[
+				"/home/e788b1/Pictures/Pixiv/c7肘[217707]/.picasa.ini",
+				"/home/e788b1/Downloads/17.m3u",
+				"/home/e788b1/.i3/gentoo/resolv.conf.head",
+				"/home/e788b1/.i3/gentoo/net",
+				"/home/e788b1/.i3/gentoo/mod.lst",
+				"/home/e788b1/.i3/gentoo/kernel.conf",
 				"/home/e788b1/.i3/config.d/gtk-3.0/settings.ini",
 				"/home/e788b1/.mplayer/config",
 				"/home/e788b1/.i3/setup-i3.sh",
@@ -99,8 +113,35 @@
 			"groups":
 			[
 				{
+					"selected": 0,
 					"sheets":
 					[
+						{
+							"buffer": 0,
+							"file": "/home/e788b1/.p7zip",
+							"settings":
+							{
+								"buffer_size": 1263,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Text/Plain text.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						}
 					]
 				}
 			],
@@ -135,7 +176,7 @@
 				]
 			},
 			"menu_visible": true,
-			"position": "0,0,0,0,0,56,122,696,602,2806,900",
+			"position": "0,0,0,0,0,320,30,960,510,2806,900",
 			"replace":
 			{
 				"height": 0.0
