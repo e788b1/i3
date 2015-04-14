@@ -60,7 +60,7 @@ for_window [window_role="pop-up|task_dialog"] floating enable
 
 popup_during_fullscreen smart
 
-new_window 1pixel
+new_window pixel 2
 # new_float pixel 3
 # hide_edge_borders   both
 # bindsym $mod+F2 border toggle
