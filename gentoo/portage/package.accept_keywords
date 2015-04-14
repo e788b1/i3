@@ -36,3 +36,5 @@ x11-misc/i3status ~amd64
 =sys-apps/kmscon-8 ~amd64
 # required by dunst (argument)
 =x11-misc/dunst-1.0.0-r1 ~amd64
+# required by media-sound/deadbeef (argument)
+=media-sound/deadbeef-0.5.1-r3 ~amd64

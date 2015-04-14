@@ -15,4 +15,4 @@ wget "$source" -O "/tmp/temp.jpg"
 targetfile="$HOME/Pictures/500px/$name@$author.jpg"
 
 mv "/tmp/temp.jpg" "$targetfile"
-[[ -f $targetfile ]] && notify-send "$targetfile √"
+[[ -f $targetfile ]] && notify-send "√ $targetfile"
