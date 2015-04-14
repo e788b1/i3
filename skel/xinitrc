@@ -18,4 +18,4 @@ hsetroot -solid $BGCOLOR
 # unclutter -root -visible &
 [[ -z `pgrep urxvtd` ]] && urxvtd -q -o -f
 eval `ck-launch-session dbus-launch --sh-syntax --exit-with-session`
-i3
+exec i3
