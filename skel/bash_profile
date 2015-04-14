@@ -11,4 +11,4 @@ if [ ! -d /tmp/thumbnails ]; then
     [[ $(tty) = "/dev/tty1" ]] && exec startx
 fi
 
-[[ $(tty) = "/dev/tty4" ]] && exec fbterm
+[[ $(tty) = "/dev/tty2" ]] && exec fbterm

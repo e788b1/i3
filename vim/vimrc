@@ -610,7 +610,7 @@ let g:NERDSpaceDelims=1
 " > 快速去行尾空格 Bundle 'bronson/vim-trailing-whitespace'     [, + <Space>]
 map <leader><space> :FixWhitespace<cr>
 
-" > 快速赋值语句对齐 Bundle 'junegunn/vim-easy-align'              ,a=/:
+" > 快速赋值语句对齐 Bundle 'junegunn/vim-easy-align'              ,a[key]
 vmap <Leader>a <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
 if !exists('g:easy_align_delimiters')

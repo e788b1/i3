@@ -2,8 +2,6 @@
 
 # export LC_CTYPE=zh_CN.UTF-8
 export XDG_CACHE_HOME="/tmp/.cache"
-# export XDG_MENU_PREFIX="lxde-"
-# export XDG_CURRENT_DESKTOP=LXDE
 export XMODIFIERS="@im=fcitx"
 export QT_IM_MODULE=fcitx
 export GTK_IM_MODULE=fcitx
@@ -11,14 +9,11 @@ export GTK_IM_MODULE=fcitx
 # synclient TapButton1=1
 xrdb -merge ~/.i3/skel/Xresources
 xmodmap ~/.i3/skel/Xmodmap
-
-# SET SCREEN
 BGCOLOR=`printf '#%06X\n' $(($RANDOM * 512))`
 echo "Set backgroud color $BGCOLOR"
 hsetroot -solid $BGCOLOR
 feh --bg-center "$(find ~/Pictures/ -name *.jpg | shuf -n1)"
 # [ -e ~/.fehbg ] && source ~/.fehbg
-xrandr --output LVDS --gamma 1:1:.5
 compton --config ~/.i3/compton.conf &
 dunst -config ~/.i3/dunstrc &
 unclutter -root -visible &

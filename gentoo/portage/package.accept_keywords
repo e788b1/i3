@@ -34,3 +34,5 @@ x11-misc/i3status ~amd64
 =app-i18n/fbterm-1.7-r1 ~amd64
 # required by kmscon (argument)
 =sys-apps/kmscon-8 ~amd64
+# required by dunst (argument)
+=x11-misc/dunst-1.0.0-r1 ~amd64
