@@ -1,0 +1,4 @@
+#!/bin/bash
+# makes dmenu identical across all scripts by sourcing this file
+# DMENU="dmenu -nb #333333 -nf #FFFFFF -sb #DDDDDD -sf #444444 -fn Sans-bold-10"
+DMENU="dmenu -nb #3b5998 -nf #FFFFFF -sb #ffffff -sf #3b5998 -fn Sans-bold-10"

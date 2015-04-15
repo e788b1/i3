@@ -1,0 +1,14 @@
+#!/bin/bash
+
+. ~/.i3/dmenurc
+
+input="$(xsel -o | $DMENU -p "search":)"
+[[ "$input" == '' ]] && exit 1
+word=$(echo $input | cut -b1,2)
+echo $word
+case "$word" in
+    'b ') result=http://www.baidu.com/s?wd=$(echo $input | cut -b3-) ;;
+    *) result=https://www.google.com/search?q=$input ;;
+esac
+
+chromium "$result"

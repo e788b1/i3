@@ -1,0 +1,48 @@
+#!/bin/bash
+
+key=$1
+# LC_CTYPE="zh_CN.UTF-8"
+# LANG="zh_CN.UTF-8"
+DMENU='dmenu -nb #3b5998 -nf #FFFFFF -sb #ffffff -sf #3b5998 -fn "Sans:normal"'
+
+case $key in
+    run)
+        dmenu_run -fn 'Sans 10' -nb '$color0' -nf '$color4' -sb '$color4' -sf '$color0' -p 'run' -i -f
+        ;;
+    search)
+        input="$(xsel -o | $DMENU -p "SEARCH":)"
+        [[ "$input" == '' ]] && exit 1
+        word=$(echo $input | cut -b1,2)
+        echo $word
+        case "$word" in
+            'b ') result=http://www.baidu.com/s?wd=$(echo $input | cut -b3-) ;;
+            *) result=https://www.google.com/search?q=$input ;;
+        esac
+        chromium "$result"
+        ;;
+    locate)
+        input="$(xsel -o | $DMENU -p "locate":)"
+        echo $input
+        if [ "$input" != '' ]
+        then
+            result="$(echo "$input" | locate -l 200 -e -r "$input" | $DMENU -l 12 -p "search result:" )"
+            [[ -f $result ]] && xdg-open "$result"
+        fi
+        ;;
+    mpc)
+        set -e
+        # Get the current playlist
+        format="%artist% - %title%"
+        playlist="$(mpc playlist -f "$format")"
+        # Pipe the playlist to dmenu, catch name
+        name="$(echo "$playlist" | $DMENU -l 12  -p "MPC")"
+
+        # Get the playlist position of the name with sed
+        songnum="$(echo "$playlist" | sed -n "/${name}/=")"
+
+        # Play the song
+        mpc play $songnum
+        ;;
+    *);;
+esac
+

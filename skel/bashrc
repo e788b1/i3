@@ -23,7 +23,7 @@ export WINEDLLOVERRIDES='winemenubuilder.exe=d'
 
 HISTSIZE=1000
 HISTFILESIZE=2000
-set -o vi
+# set -o vi
 
 alias ll='ls -alF'
 alias la='ls -A'

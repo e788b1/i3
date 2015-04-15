@@ -87,7 +87,13 @@ exec --no-startup-id unclutter -root -visible
 # for_window [class="URxvt" instance="urxvt_scratchpad"] floating enable; move scratchpad; scratchpad show; move position 100px 100px; move scratchpad
 
 ################################ COOL KEY ################################
-bindsym $mod+1 exec --no-startup-id .i3/bin/get_500px.sh
+
+bindsym $mod+1 exec --no-startup-id .i3/bin/dmenu_start locate
+bindsym $mod+2 exec --no-startup-id .i3/bin/dmenu_start search
+bindsym $mod+3 exec --no-startup-id .i3/bin/dmenu_start mpc
+bindsym $mod+4 exec --no-startup-id .i3/bin/get_500px.sh
+bindsym $mod+7 exec --no-startup-id VBoxManage startvm "android"
+bindsym $mod+8 exec --no-startup-id VBoxManage startvm "XP64"
 bindsym $mod+F10 exec --no-startup-id find Music/ | grep  "`mpc current`" | xargs -I[] rm -v []  2>&1 | xargs -0 notify-send
 
 
@@ -101,15 +107,13 @@ bindsym $mod+Print exec --no-startup-id scrot -u -e 'mv $f /tmp/ && feh /tmp/$f'
 bindsym Print exec --no-startup-id scrot -e 'mv $f /tmp/ && feh /tmp/$f'
 bindsym --release Ctrl+Print exec --no-startup-id scrot -s -e 'mv $f /tmp/ && feh /tmp/$f'
 bindsym $mod+Shift+c kill
-bindsym $mod+a exec --no-startup-id dmenu_run -nb '$color0' -nf '$color2' -sb '$color2' -sf '$color0' -p 'run' -i -f
-bindsym $mod+Escape exec --no-startup-id rofi -i3 -now -font "Sans-10" -fg '$color2' -bg '$color0' -hlfg '$color0' -hlbg '$color2' -o 85
+bindsym $mod+a exec --no-startup-id dmenu_start run
+bindsym $mod+Escape exec --no-startup-id rofi -i3 -now -font "Sans-10" -fg '$color2' -bg '$color0' -hlfg '$color0' -hlbg '$color2' -opacity 85
 bindsym Control+$mod+l exec --no-startup-id i3lock -c $(printf '%06X\n' $(($RANDOM * 512)))
 bindsym $mod+Home exec --no-startup-id feh --bg-fill "$(find ~/Pictures/ -name *.jpg | shuf -n1)"
 bindsym Control+$mod+Home exec --no-startup-id cut -d ' ' -f4- ~/.fehbg | xargs rm -v 2>&1 | xargs -0 notify-send
 exec --no-startup-id feh --bg-fill "$(find ~/Pictures/ -name *.jpg | shuf -n1)"
 
-bindsym $mod+7 exec --no-startup-id VBoxManage startvm "android"
-bindsym $mod+8 exec --no-startup-id VBoxManage startvm "XP64"
 
 ################################ rerote srceen ################################
 bindsym $mod+Shift+Up exec --no-startup-id xrandr --output LVDS --rotate normal

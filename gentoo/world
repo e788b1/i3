@@ -26,6 +26,8 @@ app-text/mupdf
 dev-lang/python
 dev-python/PyQt4
 dev-python/i3-py
+dev-python/notify2
+dev-python/py-notify
 dev-python/python-mpd
 dev-qt/qtwebkit
 dev-util/android-tools
