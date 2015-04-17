@@ -1,0 +1,124 @@
+<?xml version='1.0'?>
+<!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>
+<fontconfig>
+
+    <match target="font" >
+        <edit mode="assign" name="autohint">  <bool>true</bool></edit>
+        <edit mode="assign" name="hinting">   <bool>false</bool></edit>
+        <edit mode="assign" name="lcdfilter"> <const>lcddefault</const></edit>
+        <edit mode="assign" name="hintstyle"> <const>hintslight</const></edit>
+        <edit mode="assign" name="antialias"> <bool>true</bool></edit>
+        <edit mode="assign" name="rgba">      <const>rgb</const></edit>
+    </match>
+
+    <!-- WenQuanYi Micro Hei -->
+    <match target="font">
+        <test qual="any" name="family">
+                <string>WenQuanYi Micro Hei</string>
+        </test>
+            <edit name="globaladvance"><bool>false</bool></edit>
+            <edit name="spacing"><int>0</int></edit>
+            <edit name="antialias" mode="assign"><bool>true</bool></edit>
+            <edit name="hinting" mode="assign"><bool>true</bool></edit>
+            <edit name="hintstyle" mode="assign"><const>hintslight</const></edit>
+            <edit name="autohint" mode="assign"><bool>false</bool></edit>
+            <edit name="rh_prefer_bitmaps" mode="assign"><bool>false</bool></edit>
+            <edit name="rgba" mode="assign"><const>none</const></edit>
+            <edit name="embeddedbitmap"><bool>false</bool></edit>
+    </match>
+
+    <!-- WenQuanYi Bitmap Song -->
+        <selectfont>
+            <acceptfont>
+                <pattern>
+                    <patelt name="family">
+                        <string>WenQuanYi Bitmap Song</string>
+                    </patelt>
+                </pattern>
+            </acceptfont>
+        </selectfont>
+        <match target="pattern">
+            <test name="family" qual="any">
+            <string>WenQuanYi Bitmap Song</string>
+            </test>
+            <test compare="less" name="pixelsize" qual="any">
+                <double>12</double>
+            </test>
+            <edit mode="assign" name="family">
+                <string>WenQuanYi Micro Hei</string>
+            </edit>
+        </match>
+        <match target="pattern">
+            <test name="family" qual="any">
+                <string>WenQuanYi Bitmap Song</string>
+            </test>
+            <test compare="more" name="pixelsize" qual="any">
+                <double>16</double>
+            </test>
+            <edit mode="assign" name="family">
+                <string>AR PL SungtiL</string>
+            </edit>
+        </match>
+
+
+
+        <alias>
+                <family>serif</family>
+                <prefer>
+                        <family>Ubuntu</family>
+                        <family>WenQuanYi Bitmap Song</family>
+                        <family>WenQuanYi Micro Hei</family>
+                </prefer>
+        </alias>
+        <alias>
+                <family>sans-serif</family>
+                <prefer>
+                        <family>Ubuntu</family>
+                        <family>WenQuanYi Bitmap Song</family>
+                        <family>WenQuanYi Micro Hei</family>
+                </prefer>
+        </alias>
+        <alias>
+                <family>monospace</family>
+                <prefer>
+                        <family>Monaco</family>
+                        <family>WenQuanYi Bitmap Song</family>
+                        <family>WenQuanYi Micro Hei Mono</family>
+                </prefer>
+        </alias>
+
+        <!-- ########################### -->
+
+        <alias>
+            <family>SimSun</family>
+            <accept>
+                <family>WenQuanYi Bitmap Song</family>
+                <family>AR PL ShanHeiSun Uni</family>
+            </accept>
+            <default>
+                <family>serif</family>
+            </default>
+        </alias>
+        <alias>
+            <family>SimHei</family>
+            <accept>
+                <family>WenQuanYi Micro Hei</family>
+                <family>WenQuanYi Zen Hei</family>
+            </accept>
+            <default>
+                <family>sans-serif</family>
+            </default>
+        </alias>
+        <alias>
+            <family>Microsoft YaHei</family>
+            <accept>
+                <family>LiHei Pro</family>
+                <family>WenQuanYi Micro Hei</family>
+                <family>WenQuanYi Zen Hei</family>
+            </accept>
+            <default>
+                <family>sans-serif</family>
+            </default>
+        </alias>
+
+</fontconfig>

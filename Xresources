@@ -2,20 +2,9 @@
 Xcursor.theme: slitaz-polar
 !Xcursor.size: 16
 
-! Using Xft
-! URxvt*font:           -misc-fixed-medium-r-semicondensed-*-12-90-100-*-c-60-iso8859-1
 ! URxvt.font:             xft:Monaco:pixelsize=13:antialias=true:hinting=Full:hintingn=hintslight
-URxvt*font:             xft:Terminus:size=12
+URxvt*font:             xft:Terminus
 URxvt*boldFont:         xft:Terminus:size=12
-! URxvt*font: xft:Source\ Code\ Pro\ ExtraLight:pixelsize=13:antialias=true:hinting=true
-
-!-*-{ Xft settings
-! Xft*dpi:       96
-! Xft*antialias: True
-! Xft*hinting:   Full
-! Xft.hintstyle : hintslight
-!Xft.rgba      : rgb
-!-*-}
 
 ! URxvt.letterSpace : -1
 URxvt.termName    : rxvt-256color
@@ -53,41 +42,7 @@ URxvt.url-select.autocopy  : true
 URxvt.url-select.underline : true
 
 
-!#include "dark.xresources"
-!Solarized + tangerine + random colours
-! URxvt.pointerColorBackground : #586E75
-! URxvt.pointerColorForeground : #93A1A1
-! URxvt.cursorColor            : #93A1A1
-! URxvt.background : #333333
-! URxvt.foreground : #CCCCCC
-! URxvt.colorBD : #FFFFFF
-! URxvt.colorUL : #CCCC66
-! ! black
-! URxvt.color0  : #2E3436
-! URxvt.color8  : #555753
-! ! red
-! URxvt.color1  : #DC322F
-! URxvt.color9  : #E84F4F
-! ! green
-! URxvt.color2  : #27ae60
-! URxvt.color10 : #2ecc71
-! ! yellow
-! URxvt.color3  : #f39c12
-! URxvt.color11 : #f1c40f
-! ! blue
-! URxvt.color4  : #268BD2
-! URxvt.color12 : #6699FF
-! ! magenta
-! URxvt.color5  : #9933CC
-! URxvt.color13 : #CC66FF
-! ! cyan
-! URxvt.color6  : #33CC99
-! URxvt.color14 : #93A1A1
-! ! white
-! URxvt.color7  : #EEE8D5
-! URxvt.color15 : #FDF6E3
-
-! gentoo theme
+! gentoo Xcolor
 *background: #0f0f0f
 *foreground: #c8c8c8
 
@@ -115,3 +70,34 @@ URxvt.url-select.underline : true
 !white
 *color7:  #efefef
 *color15: #efefef
+
+! ROFI
+rofi.switchers:         window,run,ssh
+rofi.opacity:           90
+rofi.width:             50
+rofi.lines:             15
+rofi.columns:           1
+rofi.font:              mono 12
+rofi.fg:                #ffffff
+rofi.bg:                #3b5998
+rofi.hlfg:              #3b5998
+rofi.hlbg:              #ffffff
+rofi.bc:                white
+rofi.bw:                1
+rofi.location:          0
+rofi.padding:           5
+rofi.yoffset:           0
+rofi.xoffset:           0
+rofi.fixed-num-lines:   false
+rofi.hmode:             false
+rofi.terminal:          urxvtc
+rofi.ssh-client:        ssh
+rofi.ssh-command:       {terminal} -e {ssh-client} {host}
+rofi.run-command:       {cmd}
+rofi.run-shell-command: {terminal} -e {cmd}
+rofi.disable-history:   false
+rofi.levenshtein-sort:  true
+rofi.key:               F12
+rofi.rkey:              mod1+F2
+rofi.skey:              mod1+F3
+rofi.sidebar-mode:      false

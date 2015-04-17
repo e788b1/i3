@@ -1,22 +1,21 @@
 #!/bin/bash
 
 key=$1
-# LC_CTYPE="zh_CN.UTF-8"
-# LANG="zh_CN.UTF-8"
-DMENU='dmenu -nb #3b5998 -nf #FFFFFF -sb #ffffff -sf #3b5998 -fn "Sans:normal"'
+DMENU='dmenu -nb #3b5998 -nf #FFFFFF -sb #ffffff -sf #3b5998 -fn Sans-12'
 
 case $key in
     run)
-        dmenu_run -fn 'Sans 10' -nb '$color0' -nf '$color4' -sb '$color4' -sf '$color0' -p 'run' -i -f
+        dmenu_run -fn "Ubuntu-12" -nb "#3b5998" -nf "#FFFFFF" -sb "#ffffff" -sf "#3b5998" -p 'run' -i -f
         ;;
     search)
-        input="$(xsel -o | $DMENU -p "SEARCH":)"
-        [[ "$input" == '' ]] && exit 1
-        word=$(echo $input | cut -b1,2)
-        echo $word
-        case "$word" in
-            'b ') result=http://www.baidu.com/s?wd=$(echo $input | cut -b3-) ;;
-            *) result=https://www.google.com/search?q=$input ;;
+        clipboard=$(xsel -o)
+        echo $clipboard
+        input="$(echo $clipboard | $DMENU -p "SEARCH":)"
+        case $input in
+            '')    exit 1 ;;
+            'b')  result=http://www.baidu.com/s?wd=$clipboard ;;
+            'b'*) result=http://www.baidu.com/s?wd=$(echo $input | cut -b2-) ;;
+            *)     result=https://www.google.com/search?q=$clipboard ;;
         esac
         chromium "$result"
         ;;
@@ -30,6 +29,7 @@ case $key in
         fi
         ;;
     mpc)
+        LANG="zh_CN.UTF-8"
         set -e
         # Get the current playlist
         format="%artist% - %title%"

@@ -34,3 +34,4 @@ x11-misc/rofi i3
 x11-terms/rxvt-unicode 256-color fading-colors
 xfce-extra/tumbler ffmpeg
 dev-python/PyQt4 declarative script sql svg webkit
+sys-fs/squashfs-tools lzo

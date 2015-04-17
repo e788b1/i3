@@ -8,6 +8,10 @@ floating_modifier $mod
 
 ################################ Style ################################
 font xft:Ubuntu bold 10
+# font xft:cure 9
+# font xft:anorexia 9
+# font xft:drift 8
+# font xft:lime 8
 
 # facebook palette
 #   Hex      RGB
@@ -26,6 +30,13 @@ set $color4  #ffffff
 # class                 border  backgr  text    indicator
 client.focused          $color0 $color0 $color2 #FF0000
 client.focused_inactive $color1 $color1 $color0 #00FF00
+
+#class                  border   backgr.  text
+# client.focused          #C9B5BD #C9B5BD #825969
+# client.focused_inactive #191919 #191919 #999999
+# client.unfocused        #191919 #191919 #999999
+# client.urgent           #cd989a #cd989a #2e3436
+# client.background       #121212
 
 bar {
         position top
@@ -81,6 +92,7 @@ exec --no-startup-id compton --config ~/.i3/compton.conf
 exec --no-startup-id feh --bg-fill "$(find ~/Pictures/ -name *.jpg | shuf -n1)"
 exec --no-startup-id ~/.i3/bin/fcitx-start.sh
 exec --no-startup-id unclutter -root -visible
+exec --no-startup-id rofi
 
 # exec --no-startup-id google-chrome-stable
 # exec --no-startup-id urxvt -name urxvt_scratchpad --geometry 72x40
@@ -88,14 +100,16 @@ exec --no-startup-id unclutter -root -visible
 
 ################################ COOL KEY ################################
 
-bindsym $mod+1 exec --no-startup-id .i3/bin/dmenu_start locate
+bindsym $mod+1 exec --no-startup-id dmenu_start run
 bindsym $mod+2 exec --no-startup-id .i3/bin/dmenu_start search
 bindsym $mod+3 exec --no-startup-id .i3/bin/dmenu_start mpc
 bindsym $mod+4 exec --no-startup-id .i3/bin/get_500px.sh
+bindsym $mod+5 exec --no-startup-id .i3/bin/dmenu_start locate
 bindsym $mod+7 exec --no-startup-id VBoxManage startvm "android"
 bindsym $mod+8 exec --no-startup-id VBoxManage startvm "XP64"
+bindsym $mod+9 border normal
+bindsym $mod+0 border none
 bindsym $mod+F10 exec --no-startup-id find Music/ | grep  "`mpc current`" | xargs -I[] rm -v []  2>&1 | xargs -0 notify-send
-
 
 ################################ app shortcut ################################
 bindsym $mod+Return exec --no-startup-id urxvtc
@@ -107,8 +121,6 @@ bindsym $mod+Print exec --no-startup-id scrot -u -e 'mv $f /tmp/ && feh /tmp/$f'
 bindsym Print exec --no-startup-id scrot -e 'mv $f /tmp/ && feh /tmp/$f'
 bindsym --release Ctrl+Print exec --no-startup-id scrot -s -e 'mv $f /tmp/ && feh /tmp/$f'
 bindsym $mod+Shift+c kill
-bindsym $mod+a exec --no-startup-id dmenu_start run
-bindsym $mod+Escape exec --no-startup-id rofi -i3 -now -font "Sans-10" -fg '$color2' -bg '$color0' -hlfg '$color0' -hlbg '$color2' -opacity 85
 bindsym Control+$mod+l exec --no-startup-id i3lock -c $(printf '%06X\n' $(($RANDOM * 512)))
 bindsym $mod+Home exec --no-startup-id feh --bg-fill "$(find ~/Pictures/ -name *.jpg | shuf -n1)"
 bindsym Control+$mod+Home exec --no-startup-id cut -d ' ' -f4- ~/.fehbg | xargs rm -v 2>&1 | xargs -0 notify-send
@@ -128,8 +140,6 @@ bindsym Control+$mod+Right exec --no-startup-id xrandr --output VGA-0 --rotate r
 bindsym $mod+Shift+comma exec i3-input -F 'xrandr --output LVDS --gamma %s' -P 'set gamma: '
 
 ################################ windows control ################################
-bindsym $mod+9 border normal
-bindsym $mod+0 border none
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 

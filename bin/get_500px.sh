@@ -1,6 +1,8 @@
 #!/bin/bash
 
 url=`xclip -o`
+export https_proxy="127.0.0.1:8087"
+export http_proxy="127.0.0.1:8087"
 [[ 'https://500px.com' != `echo $url | cut -d '/' -f1-3` ]] &&
     notify-send "Copied URL invalid!" && exit 1
 notify-send "500px is Fetching ..."
