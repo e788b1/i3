@@ -4,7 +4,9 @@ app-arch/atool
 app-arch/p7zip
 app-arch/rar
 app-arch/unrar
+app-arch/upx-bin
 app-arch/xarchiver
+app-cdr/cdrtools
 app-editors/hexedit
 app-editors/sublime-text
 app-editors/vim
@@ -23,6 +25,7 @@ app-portage/porthole
 app-shells/bash-completion
 app-text/fbreader
 app-text/mupdf
+dev-lang/nasm
 dev-lang/python
 dev-python/PyQt4
 dev-python/i3-py
@@ -73,6 +76,7 @@ sys-apps/mlocate
 sys-apps/most
 sys-apps/pciutils
 sys-block/gparted
+sys-boot/syslinux
 sys-devel/llvm
 sys-fs/dosfstools
 sys-fs/ntfs3g

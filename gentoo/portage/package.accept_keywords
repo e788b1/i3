@@ -42,3 +42,5 @@ x11-misc/i3status ~amd64
 =dev-python/notify2-0.3-r1 ~amd64
 # required by sys-fs/unionfs-fuse (argument)
 =sys-fs/unionfs-fuse-1.0 ~amd64
+# required by upx-bin (argument)
+=app-arch/upx-bin-3.91 ~amd64

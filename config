@@ -105,7 +105,7 @@ bindsym $mod+2 exec --no-startup-id .i3/bin/dmenu_start search
 bindsym $mod+3 exec --no-startup-id .i3/bin/dmenu_start mpc
 bindsym $mod+4 exec --no-startup-id .i3/bin/get_500px.sh
 bindsym $mod+5 exec --no-startup-id .i3/bin/dmenu_start locate
-bindsym $mod+7 exec --no-startup-id VBoxManage startvm "android"
+bindsym $mod+7 exec --no-startup-id VBoxManage startvm "Android"
 bindsym $mod+8 exec --no-startup-id VBoxManage startvm "XP64"
 bindsym $mod+9 border normal
 bindsym $mod+0 border none

@@ -10,7 +10,7 @@ do
     cp -rv $file gentoo/
 done
 
-import -window root -display :0.0 -screen screenshots/i3.png
+# import -window root -display :0.0 -screen screenshots/i3.png
 
 git add .
 git commit -m "update"

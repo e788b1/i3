@@ -13,8 +13,6 @@ dev-qt/qtgui gtkstyle
 dev-qt/qtsql mysql
 dev-util/cmake -qt4
 gnome-base/gvfs -http
-gnome-base/gvfs archive fuse
-media-fonts/source-han-sans linguas_zh_CN
 media-libs/libpng apng
 media-libs/mesa gles1 gles2 openvg osmesa xa
 media-video/mplayer libcaca

@@ -4,4 +4,4 @@ VBoxManage setextradata "Android2.3" "CustomVideoMode3" "480x720x16"
 sudo setcap 'cap_sys_tty_config+ep' /usr/bin/fbterm
 xrandr --output VGA-0 --gamma 1:1:.1 --brightness 0.5
 echo -e "\e[3$(( $RANDOM * 6 / 32767 + 1 ))mHello World."
-c1:12345:respawn:/sbin/agetty -a e788b1 --noclear 38400 tty1 linux
+c1:12345:respawn:/sbin/agetty -a e788b1 --noclear 38400 tty1 linuxmkisofs -o output.iso -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table ${ISO_ROOT}
