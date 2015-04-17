@@ -13,8 +13,10 @@ case $key in
         input="$(echo $clipboard | $DMENU -p "SEARCH":)"
         case $input in
             '')    exit 1 ;;
-            'b')  result=http://www.baidu.com/s?wd=$clipboard ;;
-            'b'*) result=http://www.baidu.com/s?wd=$(echo $input | cut -b2-) ;;
+            'b;')  result=http://www.baidu.com/s?wd=$clipboard ;;
+            'w;')  result=http://en.wikipedia.org/wiki/$clipboard ;;
+            'w;'*)  result=http://en.wikipedia.org/wiki/$(echo $input | cut -b3-) ;;
+            'b;'*) result=http://www.baidu.com/s?wd=$(echo $input | cut -b3-) ;;
             *)     result=https://www.google.com/search?q=$clipboard ;;
         esac
         chromium "$result"
